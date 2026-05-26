@@ -1,0 +1,1878 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>instructions_step2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style_generate.css">
+  <style>
+    body {
+      background: #ededed;
+      font-family: "Montserrat", sans-serif;
+      color: #111111;
+    }
+
+    .menu_mobile {
+      display: none;
+    }
+
+    .plate-step {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 26px 20px 18px;
+      box-sizing: border-box;
+    }
+
+    .plate-step__layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 317px;
+      gap: 0px;
+      align-items: start;
+      justify-content: center;
+    }
+
+    .panel-column {
+      align-self: center;
+    }
+
+    .board-wrap {
+      --board-size: 460px;
+      --board-cell-size: calc(var(--board-size) / 16);
+      --board-pad: 18px;
+      position: relative;
+      width: var(--board-size);
+      margin: 0 auto;
+      padding: var(--board-pad);
+      box-sizing: content-box;
+    }
+
+    .board-axis {
+      position: absolute;
+      color: #6d6d6d;
+      font-size: 14px;
+      line-height: 1;
+      display: grid;
+    }
+
+    .board-axis span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--board-cell-size);
+      height: var(--board-cell-size);
+      font-weight: 600;
+    }
+
+    .board-axis--top,
+    .board-axis--bottom {
+      left: var(--board-pad);
+      width: var(--board-size);
+      grid-template-columns: repeat(16, 1fr);
+      column-gap: 0;
+    }
+
+    .board-axis--top {
+      top: -8px;
+    }
+
+    .board-axis--bottom {
+      bottom: -8px;
+    }
+
+    .board-axis--left,
+    .board-axis--right {
+      top: var(--board-pad);
+      height: var(--board-size);
+      grid-template-rows: repeat(16, 1fr);
+      row-gap: 0;
+    }
+
+    .board-axis--left {
+      left: -8px;
+    }
+
+    .board-axis--right {
+      right: -8px;
+    }
+
+    .mosaic-board {
+      width: var(--board-size);
+      height: var(--board-size);
+      background: #c5c5c5;
+      border: 0;
+      display: grid;
+      grid-template-columns: repeat(16, var(--board-cell-size));
+      grid-template-rows: repeat(16, var(--board-cell-size));
+      gap: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .mosaic-cell {
+      position: relative;
+      border: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+
+    .mosaic-cell.is-selected {
+      border: 0;
+    }
+
+    .mosaic-cell::after {
+      content: none;
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      top: 4px;
+      left: 4px;
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.55), 0 0 1px rgba(0, 0, 0, 0.4);
+    }
+
+    .shade-0 { background: #ececec; }
+    .shade-1 { background: #d8d8d8; }
+    .shade-2 { background: #c2c2c2; }
+    .shade-3 { background: #ababab; }
+    .shade-4 { background: #949494; }
+    .shade-5 { background: #7e7e7e; }
+    .shade-6 { background: #666666; }
+    .shade-7 { background: #4f4f4f; }
+    .shade-8 { background: #383838; }
+    .shade-9 { background: #222222; }
+
+    .panel-title,
+    .panel-subtitle {
+      margin: 0;
+      text-align: center;
+      font-size: 20px;
+      line-height: 1.12;
+      font-weight: 700;
+    }
+
+    .panel-title {
+      white-space: nowrap;
+    }
+
+    .panel-subtitle {
+      margin-top: 25px;
+      font-size: 20px;
+    }
+
+    .plate-selector {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .selector-arrow {
+      padding: 6px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid #202020;
+      color: #1d1d1d;
+      background: #efefef;
+      box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.25), 3px 3px 5px 0 rgba(0, 0, 0, 0.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+     
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .plate-preview {
+      --cols: 3;
+      --rows: 4;
+      --cell-w: 35px;
+      --cell-h: 35px;
+      --plate-photo: url("img/block6_img.png");
+      width: calc(var(--cols) * var(--cell-w));
+      height: calc(var(--rows) * var(--cell-h));
+      border: 1.6px solid #8f1625;
+      background: #2f2f2f;
+      display: grid;
+      grid-template-columns: repeat(var(--cols), var(--cell-w));
+      grid-template-rows: repeat(var(--rows), var(--cell-h));
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .plate-preview::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--plate-photo);
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(1) contrast(1.12);
+      transform: scale(1.02);
+      z-index: 0;
+    }
+
+    .plate-preview::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.06) 100%);
+      z-index: 0;
+    }
+
+    .plate-fragment {
+      border: 1.5px solid #8f1625;
+      position: relative;
+      background: transparent;
+      z-index: 1;
+      cursor: pointer;
+      width: var(--cell-w);
+      height: var(--cell-h);
+      aspect-ratio: 1 / 1;
+      box-sizing: border-box;
+    }
+
+    .plate-fragment.is-active {
+      background: rgba(191, 31, 50, 0.55);
+    }
+
+    .plate-fragment::after {
+      content: attr(data-n);
+      position: absolute;
+      right: 2px;
+      bottom: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #BF1F32;
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .outline-btn {
+      margin: 25px auto 0;
+      width: 252px;
+      height: 44px;
+      border-radius: 999px;
+      border: 2px solid #171717;
+      background: #efefef;
+      color: #171717;
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 600;
+      cursor: pointer;
+      display: block;
+    }
+
+    .zone-picker {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .zone-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 0;
+      padding: 0;
+      background: #898989;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .zone-btn.is-active {
+      background: #8f1625;
+      border: 2px solid #171717;
+    }
+
+    .zone-mark {
+      width: 29px;
+      height: 29px;
+      border: 1.5px solid #ffffff;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0px;
+      box-sizing: border-box;
+    }
+
+    .zone-mark span {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-sizing: border-box;
+    }
+
+    .zone-btn:nth-child(1) .zone-mark span:nth-child(1),
+    .zone-btn:nth-child(2) .zone-mark span:nth-child(2),
+    .zone-btn:nth-child(3) .zone-mark span:nth-child(3),
+    .zone-btn:nth-child(4) .zone-mark span:nth-child(4) {
+      background: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .mode-actions {
+      margin: 35px auto 0;
+      max-width: 627px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .mode-btn {
+      width: 100%;
+      height: 60px;
+      border-radius: 999px;
+      border: 2px solid #161616;
+      background: #efefef;
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 600;
+      color: #161616;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .mode-actions--display .mode-btn {
+      width: 100%;
+      max-width: 315px;
+      justify-self: end;
+      padding-left: 35px;
+      padding-right: 35px;
+    }
+
+    .mode-actions--clear .mode-btn {
+      width: 100%;
+      max-width: 295px;
+      justify-self: start;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .mode-actions--display {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .mode-actions--clear {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .nav-actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .nav-btn {
+      min-width: 160px;
+      height: 60px;
+      border-radius: 999px;
+      border: 2px solid #161616;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .nav-btn--back {
+      background: linear-gradient(180deg, #8d8d8d 0%, #6b6b6b 100%);
+      border: 0px;
+    }
+
+    .nav-btn--next {
+      background: radial-gradient(315.13% 323.48% at 23.74% -32.66%, #bf1f32 0%, #590f17 100%);
+      border: 2px solid #161616;
+    }
+
+    .help-title {
+      margin: 30px 0 20px;
+      text-align: center;
+      font-size: 20px;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .help-text {
+      margin: 0 auto;
+      max-width: 674px;
+      font-size: 16px;
+      line-height: 1.3;
+      font-weight: 500;
+      color: #131313;
+    }
+
+    .help-text__label {
+      font-weight: 600;
+    }
+
+    .help-top-action {
+      display: none;
+    }
+
+    .outline-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 80;
+      padding: 18px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .outline-modal.is-open {
+      display: flex;
+    }
+
+    .outline-modal__dialog {
+      width: min(94vw, 900px);
+      background: #efefef;
+      border: 2px solid #1b1b1b;
+      border-radius: 18px;
+      padding: 18px;
+      box-sizing: border-box;
+      overflow: hidden;
+      margin: auto 0;
+    }
+
+    .outline-modal__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .outline-modal__title {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .outline-modal__close {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid #161616;
+      background: #efefef;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .outline-modal__canvas {
+      width: 100%;
+      height: auto;
+      border: 1px solid #9d9d9d;
+      background: #ffffff;
+      display: block;
+    }
+
+    .outline-modal__hint {
+      margin: 12px 0 0;
+      font-size: 14px;
+      line-height: 1.3;
+      color: #272727;
+      text-align: center;
+    }
+
+    @media (max-width: 1000px) {
+      header {
+        display: none;
+      }
+
+      .menu_mobile {
+        min-height: 0;
+        padding: 12px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("img/headerbg-mob.png");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .center_header_mob {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .logo_box_mob {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo_box_mob img {
+        width: 148px;
+        height: auto;
+        display: block;
+      }
+
+      .plate-step {
+        padding: 20px 14px 28px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .plate-step__layout {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        order: 1;
+      }
+
+      .panel-column {
+        order: 1;
+      }
+
+      .board-column {
+        order: 2;
+      }
+
+      .board-wrap {
+        --board-size: min(460px, calc(100vw - 54px));
+        --board-pad: 13px;
+        width: var(--board-size);
+        padding: var(--board-pad);
+      }
+
+      .board-axis {
+        font-size: 11px;
+      }
+
+      .board-axis span {
+        width: var(--board-cell-size);
+        height: var(--board-cell-size);
+      }
+
+      .board-axis--top,
+      .board-axis--bottom {
+        left: var(--board-pad);
+        width: var(--board-size);
+      }
+
+      .board-axis--left,
+      .board-axis--right {
+        top: var(--board-pad);
+        height: var(--board-size);
+      }
+
+      .mosaic-board {
+        width: var(--board-size);
+        height: var(--board-size);
+        grid-template-columns: repeat(16, var(--board-cell-size));
+        grid-template-rows: repeat(16, var(--board-cell-size));
+        gap: 0;
+      }
+
+      .mosaic-cell::after {
+        width: 8px;
+        height: 8px;
+        top: 3px;
+        left: 3px;
+      }
+
+      .panel-title,
+      .panel-subtitle {
+        font-size: 20px;
+      }
+
+      .panel-title {
+        white-space: normal;
+      }
+
+      .panel-subtitle {
+        margin-top: 18px;
+      }
+
+      .outline-btn {
+        margin-top: 25px;
+        width: min(100%, 237px);
+        height: 52px;
+        font-size: 14px;
+      }
+
+      .plate-preview {
+        --cell-w: 35px;
+        --cell-h: 35px;
+      }
+
+      .mode-actions {
+        display: contents;
+        margin-top: 0;
+        max-width: none;
+        gap: 0;
+      }
+
+      .mode-btn {
+        height: 52px;
+        font-size: 14px;
+      }
+
+      .mode-actions--display {
+        order: 3;
+        display: flex;
+        justify-content: center;
+        margin-top: 22px;
+      }
+
+      .mode-actions--clear {
+        order: 5;
+        display: flex;
+        justify-content: center;
+        margin-top: 14px;
+      }
+
+      .mode-actions--display .mode-btn,
+      .mode-actions--clear .mode-btn {
+        width: min(100%, 237px);
+        max-width: 237px;
+        padding-left: 16px;
+        padding-right: 16px;
+        font-size: 14px;
+      }
+
+      .nav-actions {
+        order: 4;
+        margin-top: 16px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .nav-btn {
+        width: 170px;
+        min-width: 170px;
+        height: 48px;
+        font-size: 14px;
+      }
+
+      .help-title {
+        order: 6;
+        margin: 30px 0 10px;
+        max-width: 319px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        font-size: 14px;
+      }
+
+      .help-text {
+        order: 7;
+        margin: 0 auto;
+        max-width: 319px;
+        font-size: 12px;
+        line-height: 1.3;
+      }
+
+      .help-top-action {
+        order: 8;
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+      }
+
+      .help-top-action__btn {
+        width: min(100%, 245px);
+        max-width: 245px;
+        height: 48px;
+        font-size: 14px;
+        padding-left: 16px;
+        padding-right: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+
+      .outline-modal__dialog {
+        width: min(96vw, 560px);
+        padding: 14px;
+      }
+
+      .outline-modal__title {
+        font-size: 18px;
+      }
+
+      .outline-modal__hint {
+        font-size: 12px;
+      }
+
+      .site-footer {
+        margin-top: 10px !important;
+        padding: 30px 18px 16px;
+        background-image: url("img/footer_mob.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .footer-container {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .footer-brand {
+        align-items: center;
+      }
+
+      .footer-nav {
+        display: block;
+      }
+
+      .footer-menu {
+        margin: 0;
+        text-align: center;
+      }
+
+      .footer-menu li {
+        margin-bottom: 10px;
+      }
+
+      .footer-menu a {
+        font-size: 16px;
+        line-height: 1.35;
+      }
+
+      .footer-legal {
+        display: none;
+      }
+
+      .footer-contacts {
+        margin-top: 6px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .contact-address {
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .footer-bottom {
+        margin-top: 8px;
+        padding-top: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .plate-step {
+        padding: 14px 10px 22px;
+      }
+
+      .plate-step__layout {
+        gap: 16px;
+      }
+
+      .board-wrap {
+        --board-size: min(460px, calc(100vw - 46px));
+        --board-pad: 13px;
+      }
+
+      .board-axis {
+        font-size: 10px;
+      }
+
+      .board-axis--top {
+        top: -6px;
+      }
+
+      .board-axis--bottom {
+        bottom: -6px;
+      }
+
+      .board-axis--left {
+        left: -6px;
+      }
+
+      .board-axis--right {
+        right: -6px;
+      }
+
+      .panel-title,
+      .panel-subtitle {
+        font-size: 18px;
+      }
+
+      .plate-selector {
+        margin-top: 14px;
+        gap: 10px;
+      }
+
+      .selector-arrow {
+        width: 40px;
+        height: 40px;
+      }
+
+      .outline-btn {
+        margin-top: 25px;
+        width: min(100%, 237px);
+        font-size: 14px;
+      }
+
+      .zone-picker {
+        margin-top: 12px;
+        gap: 14px;
+      }
+
+      .zone-btn {
+        width: 55px;
+        height: 55px;
+      }
+
+      .zone-mark {
+        width: 25px;
+        height: 25px;
+      }
+
+      .mode-actions {
+        margin-top: 22px;
+        max-width: 300px;
+      }
+
+      .mode-btn {
+        height: 52px;
+        font-size: 14px;
+      }
+
+      .nav-btn {
+        width: 170px;
+        min-width: 170px;
+        height: 48px;
+        font-size: 14px;
+      }
+
+      .help-title {
+        margin: 30px 0 10px;
+        max-width: 319px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        font-size: 14px;
+      }
+
+      .help-text {
+        margin: 0 auto;
+        max-width: 319px;
+        font-size: 12px;
+        line-height: 1.3;
+      }
+
+      .help-top-action__btn {
+        width: min(100%, 245px);
+        max-width: 245px;
+      }
+
+      .logo_box_mob img {
+        width: 132px;
+      }
+
+      .site-footer {
+        padding: 24px 12px 14px;
+      }
+
+      .footer-menu a {
+        font-size: 15px;
+      }
+
+      .contact-address {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 513px) {
+      .board-wrap {
+        --board-size: min(460px, calc((110vw - 58px) * 0.8889));
+      }
+    }
+
+    @media (max-width: 412px) {
+      .nav-btn {
+        width: 130px;
+        min-width: 130px;
+        height: 48px;
+        font-size: 14px;
+      }
+    }
+
+    @media (min-width: 356px) and (max-width: 412px) {
+      .nav-actions {
+        order: 4;
+        margin-top: 16px;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .nav-btn {
+        width: 150px;
+        min-width: 150px;
+        height: 48px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 355px) {
+      .nav-btn {
+        width: 130px;
+        min-width: 130px;
+        height: 48px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 389px) {
+      .mode-actions--display .mode-btn,
+      .mode-actions--clear .mode-btn {
+        width: min(100%, 237px);
+        max-width: 237px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .nav-btn {
+        font-size: 14px;
+      }
+    }
+
+  </style>
+</head>
+<body id="page-top">
+  <header>
+    <div class="center_header">
+      <div class="logo_box">
+        <h3 class="PC_h3">+7 900 000-00-00</h3>
+        <img src="img/logo.png" alt="">
+        <h3 class="PC_h3">info@mozle.ru</h3>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu_mobile">
+    <div class="center_header_mob">
+      <div class="logo_box_mob">
+        <img src="img/logo.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <section class="plate-step">
+      <div class="plate-step__layout">
+        <div class="board-column">
+          <div class="board-wrap">
+            <div class="board-axis board-axis--top" aria-hidden="true">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span>
+            </div>
+            <div class="board-axis board-axis--left" aria-hidden="true">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span>
+            </div>
+            <div class="mosaic-board" id="mosaic-board" aria-label="Сетка фрагмента 16 на 16"></div>
+            <div class="board-axis board-axis--right" aria-hidden="true">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span>
+            </div>
+            <div class="board-axis board-axis--bottom" aria-hidden="true">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-column">
+          <h2 class="panel-title">Выберете пластину основы</h2>
+
+          <div class="plate-selector" aria-label="Выбор пластины">
+            <button class="selector-arrow" type="button" aria-label="Предыдущая пластина">
+              <svg width="29" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M27.543 8.94432C28.1335 8.94432 28.6123 8.46557 28.6123 7.875C28.6123 7.28443 28.1335 6.80568 27.543 6.80568L27.543 7.875L27.543 8.94432ZM0.313427 7.11888C-0.10417 7.53647 -0.10417 8.21353 0.313427 8.63113L7.11855 15.4362C7.53614 15.8538 8.2132 15.8538 8.6308 15.4362C9.04839 15.0186 9.04839 14.3416 8.6308 13.924L2.5818 7.875L8.6308 1.82601C9.04839 1.40841 9.04839 0.731353 8.6308 0.313758C8.2132 -0.103838 7.53614 -0.103838 7.11855 0.313758L0.313427 7.11888ZM27.543 7.875L27.543 6.80568L1.06955 6.80568L1.06955 7.875L1.06955 8.94432L27.543 8.94432L27.543 7.875Z" fill="#0F0F0F"/>
+</svg>
+
+            </button>
+            <div class="plate-preview" id="plate-preview" aria-live="polite"></div>
+            <button class="selector-arrow" type="button" aria-label="Следующая пластина">
+              <svg width="29" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.07031 6.80568C0.479743 6.80568 0.000991106 7.28443 0.000991106 7.875C0.000991106 8.46557 0.479743 8.94432 1.07031 8.94432L1.07031 7.875L1.07031 6.80568ZM28.2999 8.63112C28.7175 8.21353 28.7175 7.53647 28.2999 7.11888L21.4947 0.313756C21.0771 -0.10384 20.4001 -0.10384 19.9825 0.313756C19.5649 0.731352 19.5649 1.40841 19.9825 1.826L26.0315 7.875L19.9825 13.924C19.5649 14.3416 19.5649 15.0186 19.9825 15.4362C20.4001 15.8538 21.0771 15.8538 21.4947 15.4362L28.2999 8.63112ZM1.07031 7.875L1.07031 8.94432L27.5437 8.94432V7.875V6.80568L1.07031 6.80568L1.07031 7.875Z" fill="#0F0F0F"/>
+</svg>
+
+            </button>
+          </div>
+
+          <button class="outline-btn" type="button">ПОСМОТРЕТЬ ОБЩИЙ ВИД</button>
+
+          <h3 class="panel-subtitle">Выберете область сборки<br>на пластине</h3>
+
+          <div class="zone-picker" aria-label="Область сборки">
+            <button class="zone-btn is-active" type="button" aria-label="Левая верхняя область">
+              <span class="zone-mark"><span></span><span></span><span></span><span></span></span>
+            </button>
+            <button class="zone-btn" type="button" aria-label="Правая верхняя область">
+              <span class="zone-mark"><span></span><span></span><span></span><span></span></span>
+            </button>
+            <button class="zone-btn" type="button" aria-label="Левая нижняя область">
+              <span class="zone-mark"><span></span><span></span><span></span><span></span></span>
+            </button>
+            <button class="zone-btn" type="button" aria-label="Правая нижняя область">
+              <span class="zone-mark"><span></span><span></span><span></span><span></span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mode-actions">
+        <div class="mode-actions--display">
+          <button class="mode-btn mode-btn--display" type="button">РЕЖИМ ОТОБРАЖЕНИЯ</button>
+        </div>
+        <div class="mode-actions--clear">
+          <button class="mode-btn mode-btn--clear" type="button">ОЧИСТИТЬ ПОЛЕ</button>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <a class="nav-btn nav-btn--back" href="instructions_step1.html">НАЗАД</a>
+        <a class="nav-btn nav-btn--next" href="generate_step3.html">ВПЕРЁД</a>
+      </div>
+
+      <h4 class="help-title">Управление сборкой:</h4>
+      <p class="help-text">
+        <span class="help-text__label">Чтобы выбрать ячейку</span> - нажмите на ячейку 1 раз<br>
+        <span class="help-text__label">Отметить собранный участок</span> - кнопка РЕЖИМ ОТОБРАЖЕНИЯ<br>
+        <span class="help-text__label">Вернуться на 1 шаг назад</span> - кнопка НАЗАД<br>
+        <span class="help-text__label">Продвинуться на 1 шаг</span> - кнопка ВПЕРЁД<br>
+        <span class="help-text__label">Полностью очистить весь фрагмент</span> - кнопка ОЧИСТИТЬ ПОЛЕ
+      </p>
+      <div class="help-top-action">
+        <a class="mode-btn help-top-action__btn" href="#page-top">В НАЧАЛО ИНСТРУКЦИИ</a>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="/" class="brand-link">
+          <img class="footer_logo" src="img/logo.png" alt="">
+        </a>
+      </div>
+
+      <div class="footer-nav">
+        <ul class="footer-menu">
+          <li><a href="#">Каталог</a></li>
+          <li><a href="#">Получить инструкцию</a></li>
+          <li><a href="#">Загрузить фото</a></li>
+          <li><a href="#">Отзывы покупателей</a></li>
+          <li><a href="#">Дилерам и партнерам</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-legal">
+        <ul class="legal-links">
+          <li><a href="#">Политика конфиденциальности</a></li>
+          <li><a href="#">Политика использования файлов cookies</a></li>
+          <li><a href="#">Обработка персональных данных</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contacts">
+        <a href="tel:+79000000000" class="contact-phone">+7 900 000-00-00</a>
+        <a href="mailto:info@mozle.ru" class="contact-email">info@mozle.ru</a>
+        <address class="contact-address">
+          101000, г. Москва, ул. Тверская, д. 15/2, корп. 1, офис 177
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">2025 © MozLe</p>
+    </div>
+  </footer>
+
+  <div class="outline-modal" id="outline-modal" aria-hidden="true">
+    <div class="outline-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="outline-modal-title">
+      <div class="outline-modal__header">
+        <h3 class="outline-modal__title" id="outline-modal-title">Общий вид мозаики</h3>
+        <button class="outline-modal__close" id="outline-modal-close" type="button" aria-label="Закрыть окно">×</button>
+      </div>
+      <img class="instruction-photo__image is-visible outline-modal__canvas" id="outline-modal-image" alt="Общий вид мозаики">
+      <p class="outline-modal__hint">Общий вид мозаики.</p>
+    </div>
+  </div>
+
+  <script>
+    const board = document.getElementById("mosaic-board");
+    const platePreview = document.getElementById("plate-preview");
+    const zoneButtons = Array.from(document.querySelectorAll(".zone-picker .zone-btn"));
+    const selectorPrevButton = document.querySelector(".plate-selector .selector-arrow:first-child");
+    const selectorNextButton = document.querySelector(".plate-selector .selector-arrow:last-child");
+    const outlineButton = document.querySelector(".outline-btn");
+    const modeButtons = Array.from(document.querySelectorAll(".mode-actions .mode-btn"));
+    const clearFieldButton = modeButtons[1] || null;
+    const outlineModal = document.getElementById("outline-modal");
+    const outlineModalClose = document.getElementById("outline-modal-close");
+    const outlineModalImage = document.getElementById("outline-modal-image");
+    const size = 16;
+    const IMAGE_DB_CONFIG = {
+      name: "mozle_step_storage",
+      version: 1,
+      storeName: "files",
+      originalImageKey: "step4_original_image",
+      editedImageKey: "step6_edited_image",
+      generatedMosaicKey: "step8_generated_mosaic"
+    };
+    const STORAGE_KEYS = {
+      setSize: "mozle_set_size",
+      setIndex: "mozle_set_index",
+      canvasSize: "mozle_canvas_size",
+      editorOrientation: "mozle_editor_orientation",
+      uploadedImageFallback: "mozle_uploaded_image_data",
+      editedImageFallback: "mozle_edited_image_data",
+      generatedMosaicFallback: "mozle_generated_mosaic_data",
+      step2Progress: "mozle_step2_progress"
+    };
+    const PREVIEW_LAYOUT_BY_SET = {
+      S: { rows: 2, cols: 2 },
+      M: { rows: 2, cols: 3 },
+      L: { rows: 3, cols: 3 },
+      XL: { rows: 3, cols: 4 }
+    };
+    const SIZE_BY_INDEX = ["S", "M", "L", "XL"];
+    const ZONE_OFFSETS = [
+      { x: 0, y: 0 },
+      { x: 1, y: 0 },
+      { x: 0, y: 1 },
+      { x: 1, y: 1 }
+    ];
+    const MOSAIC_TILE_IMAGES = {
+      A: "img/mosaic/A.png",
+      B: "img/mosaic/B.png",
+      C: "img/mosaic/C.png",
+      D: "img/mosaic/D.png",
+      X: "img/mosaic/X.png",
+      Y: "img/mosaic/Y.png",
+      Z: "img/mosaic/Z.png"
+    };
+    const MOSAIC_ACTIVE_TILE_IMAGES = {
+      A: "img/mosaicactive/A.png",
+      B: "img/mosaicactive/B.png",
+      C: "img/mosaicactive/C.png",
+      D: "img/mosaicactive/D.png",
+      X: "img/mosaicactive/X.png",
+      Y: "img/mosaicactive/Y.png",
+      Z: "img/mosaicactive/Z.png"
+    };
+    const MOSAIC_AFTER_TILE_IMAGES = {
+      A: "img/mosaicafter/A.png",
+      B: "img/mosaicafter/B.png",
+      C: "img/mosaicafter/C.png",
+      D: "img/mosaicafter/D.png",
+      X: "img/mosaicafter/X.png",
+      Y: "img/mosaicafter/Y.png",
+      Z: "img/mosaicafter/Z.png"
+    };
+    const MOSAIC_TONE_LEVELS = [
+      { code: "A", luma: 242 },
+      { code: "B", luma: 220 },
+      { code: "C", luma: 186 },
+      { code: "D", luma: 157 },
+      { code: "X", luma: 124 },
+      { code: "Y", luma: 71 },
+      { code: "Z", luma: 23 }
+    ];
+    const MOSAIC_CODE_COLORS = {
+      A: "#f2f2f2",
+      B: "#dcdcdc",
+      C: "#bababa",
+      D: "#9d9d9d",
+      X: "#7c7c7c",
+      Y: "#474747",
+      Z: "#171717"
+    };
+    let plateObjectUrl = "";
+    let outlineObjectUrl = "";
+    let currentPlatePhotoSrc = "";
+    let currentPlateLayout = PREVIEW_LAYOUT_BY_SET.XL;
+    let selectedPlateIndex = 0;
+    let selectedZoneIndex = 0;
+    let boardRenderToken = 0;
+    const overviewTileImageCache = new Map();
+    let boardCellCodes = [];
+    const selectedBoardCells = new Set();
+    const cellGroupIds = new Array(size * size).fill(null);
+    let nextGroupId = 1;
+    let selectionStartIndex = null;
+    let step2Progress = loadStep2Progress();
+
+    function getSelectedSetSize() {
+      const storedSize = String(localStorage.getItem(STORAGE_KEYS.setSize) || "").toUpperCase();
+      if (PREVIEW_LAYOUT_BY_SET[storedSize]) return storedSize;
+
+      const indexRaw = localStorage.getItem(STORAGE_KEYS.setIndex);
+      const index = Number(indexRaw);
+      if (Number.isInteger(index) && SIZE_BY_INDEX[index]) {
+        return SIZE_BY_INDEX[index];
+      }
+
+      return "XL";
+    }
+
+    function parseCanvasSize(value) {
+      const parts = String(value || "").toLowerCase().split("x");
+      if (parts.length !== 2) return null;
+
+      const rows = Number.parseInt(parts[0], 10);
+      const cols = Number.parseInt(parts[1], 10);
+
+      if (!Number.isInteger(rows) || !Number.isInteger(cols)) return null;
+      if (rows < 1 || cols < 1) return null;
+
+      return { rows, cols };
+    }
+
+    function getPreviewLayout() {
+      const orientation = localStorage.getItem(STORAGE_KEYS.editorOrientation) === "portrait"
+        ? "portrait"
+        : "landscape";
+      const savedCanvas = localStorage.getItem(STORAGE_KEYS.canvasSize);
+      const parsedCanvas = parseCanvasSize(savedCanvas);
+      if (parsedCanvas) {
+        if (orientation === "portrait") {
+          return { rows: parsedCanvas.cols, cols: parsedCanvas.rows };
+        }
+        return parsedCanvas;
+      }
+
+      const selectedSet = getSelectedSetSize();
+      const fallbackLayout = PREVIEW_LAYOUT_BY_SET[selectedSet] || PREVIEW_LAYOUT_BY_SET.XL;
+      if (orientation === "portrait") {
+        return { rows: fallbackLayout.cols, cols: fallbackLayout.rows };
+      }
+      return fallbackLayout;
+    }
+
+    function getFragmentKey(plateIndex = selectedPlateIndex, zoneIndex = selectedZoneIndex) {
+      const layoutRows = Math.max(1, Number(currentPlateLayout.rows) || 1);
+      const layoutCols = Math.max(1, Number(currentPlateLayout.cols) || 1);
+      return `r${layoutRows}c${layoutCols}_p${plateIndex}z${zoneIndex}`;
+    }
+
+    function getLayoutCellCount(layout = currentPlateLayout) {
+      const rows = Math.max(1, Number(layout.rows) || 1);
+      const cols = Math.max(1, Number(layout.cols) || 1);
+      return rows * cols;
+    }
+
+    function ensureProgressShape() {
+      if (!step2Progress || typeof step2Progress !== "object") {
+        step2Progress = { version: 1, fragments: {} };
+        return;
+      }
+      if (!step2Progress.fragments || typeof step2Progress.fragments !== "object") {
+        step2Progress.fragments = {};
+      }
+      if (!step2Progress.version) {
+        step2Progress.version = 1;
+      }
+    }
+
+    function loadStep2Progress() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEYS.step2Progress);
+        if (!raw) return { version: 1, fragments: {} };
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object") return { version: 1, fragments: {} };
+        if (!parsed.fragments || typeof parsed.fragments !== "object") {
+          parsed.fragments = {};
+        }
+        return parsed;
+      } catch (error) {
+        return { version: 1, fragments: {} };
+      }
+    }
+
+    function saveStep2Progress() {
+      ensureProgressShape();
+      try {
+        localStorage.setItem(STORAGE_KEYS.step2Progress, JSON.stringify(step2Progress));
+      } catch (error) {
+        // no-op
+      }
+    }
+
+    function getFragmentProgress(key = getFragmentKey()) {
+      ensureProgressShape();
+      return step2Progress.fragments[key] || null;
+    }
+
+    function restoreCurrentFragmentSelection() {
+      selectedBoardCells.clear();
+      for (let i = 0; i < cellGroupIds.length; i += 1) {
+        cellGroupIds[i] = null;
+      }
+      nextGroupId = 1;
+      selectionStartIndex = null;
+
+      const fragment = getFragmentProgress();
+      if (!fragment || !Array.isArray(fragment.selected)) return;
+
+      fragment.selected.forEach((index) => {
+        if (Number.isInteger(index) && index >= 0 && index < size * size) {
+          selectedBoardCells.add(index);
+        }
+      });
+    }
+
+    function saveCurrentFragmentSelection() {
+      ensureProgressShape();
+      const key = getFragmentKey();
+      const selected = Array.from(selectedBoardCells).sort((a, b) => a - b);
+      step2Progress.fragments[key] = {
+        selected,
+        completed: selected.length === size * size,
+        updatedAt: Date.now()
+      };
+      saveStep2Progress();
+    }
+
+    function renderPlatePreview() {
+      if (!platePreview) return;
+
+      const layout = getPreviewLayout();
+      const cellsTotal = layout.rows * layout.cols;
+      currentPlateLayout = layout;
+      selectedPlateIndex = Math.max(0, Math.min(selectedPlateIndex, cellsTotal - 1));
+
+      platePreview.innerHTML = "";
+      platePreview.style.setProperty("--rows", String(layout.rows));
+      platePreview.style.setProperty("--cols", String(layout.cols));
+      const shortSide = Math.min(layout.rows, layout.cols);
+      const longSide = Math.max(layout.rows, layout.cols);
+      let previewCellSize = "35px";
+
+      if (shortSide === 2 && longSide === 2) {
+        previewCellSize = "72px";
+      } else if (shortSide === 2 && longSide === 3) {
+        previewCellSize = "72px";
+      } else if (shortSide === 2 && longSide === 4) {
+        previewCellSize = "50px";
+      } else if (shortSide === 3 && longSide === 3) {
+        previewCellSize = "55px";
+      } else if (shortSide === 3 && longSide === 4) {
+        previewCellSize = "45px";
+      } else if (shortSide === 4 && longSide === 4) {
+        previewCellSize = "45px";
+      }
+      platePreview.style.setProperty("--cell-w", previewCellSize);
+      platePreview.style.setProperty("--cell-h", previewCellSize);
+      platePreview.setAttribute("aria-label", `Plate ${layout.rows}x${layout.cols}`);
+
+      for (let i = 1; i <= cellsTotal; i += 1) {
+        const fragment = document.createElement("div");
+        fragment.className = "plate-fragment";
+        fragment.classList.toggle("is-active", i - 1 === selectedPlateIndex);
+        fragment.setAttribute("data-n", String(i));
+        fragment.setAttribute("data-plate-index", String(i - 1));
+        fragment.setAttribute("role", "button");
+        fragment.tabIndex = 0;
+        fragment.addEventListener("click", () => {
+          setActivePlate(i - 1);
+        });
+        fragment.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            setActivePlate(i - 1);
+          }
+        });
+        platePreview.appendChild(fragment);
+      }
+
+      updatePlateSelectionUi();
+    }
+
+    function updatePlateSelectionUi() {
+      if (!platePreview) return;
+      const fragments = Array.from(platePreview.querySelectorAll(".plate-fragment"));
+      fragments.forEach((fragment, index) => {
+        fragment.classList.toggle("is-active", index === selectedPlateIndex);
+      });
+    }
+
+    function setActivePlate(nextIndex) {
+      const maxIndex = (currentPlateLayout.rows * currentPlateLayout.cols) - 1;
+      selectedPlateIndex = Math.max(0, Math.min(nextIndex, maxIndex));
+      updatePlateSelectionUi();
+      void renderBoardColumnZoom();
+    }
+
+    function setActiveZone(nextZoneIndex) {
+      const safeIndex = Math.max(0, Math.min(nextZoneIndex, zoneButtons.length - 1));
+      selectedZoneIndex = safeIndex;
+      zoneButtons.forEach((button, index) => {
+        button.classList.toggle("is-active", index === safeIndex);
+      });
+      void renderBoardColumnZoom();
+    }
+
+    function bindZonePicker() {
+      zoneButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          setActiveZone(index);
+        });
+      });
+    }
+
+    function bindPlateArrows() {
+      if (selectorPrevButton) {
+        selectorPrevButton.addEventListener("click", () => {
+          setActivePlate(selectedPlateIndex - 1);
+        });
+      }
+
+      if (selectorNextButton) {
+        selectorNextButton.addEventListener("click", () => {
+          setActivePlate(selectedPlateIndex + 1);
+        });
+      }
+    }
+
+    function ensureBoardOverlayGrid() {
+      if (!board) return;
+      if (board.childElementCount >= size * size) return;
+
+      board.innerHTML = "";
+      for (let i = 0; i < size * size; i += 1) {
+        const cell = document.createElement("div");
+        cell.className = "mosaic-cell";
+        cell.setAttribute("data-cell-index", String(i));
+        cell.addEventListener("click", () => {
+          applySelectionRange(i);
+        });
+        board.appendChild(cell);
+      }
+    }
+
+    function getBoardTileSrc(code, isSelected) {
+      if (!code) return "";
+      if (isSelected) {
+        return MOSAIC_TILE_IMAGES[code] || "";
+      }
+      return MOSAIC_AFTER_TILE_IMAGES[code] || MOSAIC_TILE_IMAGES[code] || "";
+    }
+
+    function getBoardAnchorTileSrc(code) {
+      if (!code) return "";
+      return MOSAIC_ACTIVE_TILE_IMAGES[code] || MOSAIC_TILE_IMAGES[code] || "";
+    }
+
+    function paintBoardCell(index) {
+      if (!board) return;
+      const cell = board.querySelector(`.mosaic-cell[data-cell-index="${index}"]`);
+      if (!cell) return;
+
+      const code = boardCellCodes[index] || "A";
+      const isSelected = selectedBoardCells.has(index);
+      const isSelectionAnchor = selectionStartIndex === index;
+      const tileSrc = isSelectionAnchor
+        ? getBoardAnchorTileSrc(code)
+        : getBoardTileSrc(code, isSelected);
+
+      cell.style.backgroundImage = tileSrc ? `url("${tileSrc}")` : "none";
+      cell.setAttribute("data-tile", code);
+      cell.classList.toggle("is-selected", isSelected);
+      cell.style.borderTop = "0";
+      cell.style.borderRight = "0";
+      cell.style.borderBottom = "0";
+      cell.style.borderLeft = "0";
+    }
+
+    function repaintBoardCells() {
+      for (let i = 0; i < size * size; i += 1) {
+        paintBoardCell(i);
+      }
+    }
+
+    function clearCellSelection(index) {
+      if (!selectedBoardCells.has(index)) return;
+      selectedBoardCells.delete(index);
+      cellGroupIds[index] = null;
+    }
+
+    function getCellIndex(x, y) {
+      return (y * size) + x;
+    }
+
+    function applySelectionRange(endIndex) {
+      if (!Number.isInteger(endIndex) || endIndex < 0 || endIndex >= size * size) return;
+
+      if (selectionStartIndex === null) {
+        selectionStartIndex = endIndex;
+        repaintBoardCells();
+        return;
+      }
+
+      const startIndex = selectionStartIndex;
+      const startX = startIndex % size;
+      const startY = Math.floor(startIndex / size);
+      const endX = endIndex % size;
+      const endY = Math.floor(endIndex / size);
+      const minX = Math.min(startX, endX);
+      const maxX = Math.max(startX, endX);
+      const minY = Math.min(startY, endY);
+      const maxY = Math.max(startY, endY);
+      const groupId = nextGroupId++;
+
+      for (let y = minY; y <= maxY; y += 1) {
+        for (let x = minX; x <= maxX; x += 1) {
+          const cellIndex = getCellIndex(x, y);
+          clearCellSelection(cellIndex);
+          selectedBoardCells.add(cellIndex);
+          cellGroupIds[cellIndex] = groupId;
+        }
+      }
+
+      selectionStartIndex = null;
+      repaintBoardCells();
+      saveCurrentFragmentSelection();
+    }
+
+    function clearCurrentFragmentSelection() {
+      selectedBoardCells.clear();
+      selectionStartIndex = null;
+      for (let i = 0; i < cellGroupIds.length; i += 1) {
+        cellGroupIds[i] = null;
+      }
+      repaintBoardCells();
+      saveCurrentFragmentSelection();
+    }
+
+    function bindModeActions() {
+      if (clearFieldButton) {
+        clearFieldButton.addEventListener("click", () => {
+          clearCurrentFragmentSelection();
+        });
+      }
+    }
+
+    function openImageDB() {
+      return new Promise((resolve, reject) => {
+        if (!("indexedDB" in window)) {
+          reject(new Error("IndexedDB is not supported"));
+          return;
+        }
+
+        const request = indexedDB.open(IMAGE_DB_CONFIG.name, IMAGE_DB_CONFIG.version);
+
+        request.onupgradeneeded = () => {
+          const db = request.result;
+          if (!db.objectStoreNames.contains(IMAGE_DB_CONFIG.storeName)) {
+            db.createObjectStore(IMAGE_DB_CONFIG.storeName, { keyPath: "id" });
+          }
+        };
+
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error || new Error("Failed to open IndexedDB"));
+      });
+    }
+
+    async function getStoredImage(key) {
+      try {
+        const db = await openImageDB();
+        const transaction = db.transaction(IMAGE_DB_CONFIG.storeName, "readonly");
+        const request = transaction.objectStore(IMAGE_DB_CONFIG.storeName).get(key);
+
+        const record = await new Promise((resolve, reject) => {
+          request.onsuccess = () => resolve(request.result || null);
+          request.onerror = () => reject(request.error || new Error("Failed to read image"));
+        });
+
+        db.close();
+        return record;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function setPlatePreviewPhotoSource(src) {
+      currentPlatePhotoSrc = String(src || "");
+      if (!platePreview || !currentPlatePhotoSrc) return;
+      platePreview.style.setProperty("--plate-photo", `url("${currentPlatePhotoSrc}")`);
+      void renderBoardColumnZoom();
+    }
+
+    function loadImage(src) {
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () => reject(new Error("Failed to load image"));
+        image.src = src;
+      });
+    }
+
+    async function loadOverviewTileImageForCode(code) {
+      if (overviewTileImageCache.has(code)) {
+        return overviewTileImageCache.get(code);
+      }
+
+      const tileSrc = MOSAIC_AFTER_TILE_IMAGES[code] || MOSAIC_TILE_IMAGES[code] || "";
+      if (!tileSrc) {
+        overviewTileImageCache.set(code, null);
+        return null;
+      }
+
+      try {
+        const tileImage = await loadImage(tileSrc);
+        overviewTileImageCache.set(code, tileImage);
+        return tileImage;
+      } catch (error) {
+        overviewTileImageCache.set(code, null);
+        return null;
+      }
+    }
+
+    function getNearestMosaicCode(lumaValue) {
+      let nearest = MOSAIC_TONE_LEVELS[0];
+      let minDelta = Number.POSITIVE_INFINITY;
+
+      MOSAIC_TONE_LEVELS.forEach((entry) => {
+        const delta = Math.abs(entry.luma - lumaValue);
+        if (delta < minDelta) {
+          minDelta = delta;
+          nearest = entry;
+        }
+      });
+
+      return nearest.code;
+    }
+
+    function clearBoardTiles() {
+      if (!board) return;
+      boardCellCodes = Array(size * size).fill("A");
+      selectedBoardCells.clear();
+      selectionStartIndex = null;
+      for (let i = 0; i < cellGroupIds.length; i += 1) {
+        cellGroupIds[i] = null;
+      }
+      nextGroupId = 1;
+      repaintBoardCells();
+    }
+
+    function getBoardCellCodesForFragmentFromImage(image, plateIndex, zoneIndex) {
+      const plateCols = Math.max(1, currentPlateLayout.cols || 1);
+      const plateRows = Math.max(1, currentPlateLayout.rows || 1);
+      const safePlateIndex = Math.max(0, Math.min(plateIndex, (plateCols * plateRows) - 1));
+      const plateCol = safePlateIndex % plateCols;
+      const plateRow = Math.floor(safePlateIndex / plateCols);
+      const zone = ZONE_OFFSETS[zoneIndex] || ZONE_OFFSETS[0];
+
+      const plateW = image.width / plateCols;
+      const plateH = image.height / plateRows;
+      const quarterW = plateW / 2;
+      const quarterH = plateH / 2;
+
+      const sx = Math.floor((plateCol * plateW) + (zone.x * quarterW));
+      const sy = Math.floor((plateRow * plateH) + (zone.y * quarterH));
+      const sw = Math.max(1, Math.floor(quarterW));
+      const sh = Math.max(1, Math.floor(quarterH));
+
+      const sampleCanvas = document.createElement("canvas");
+      sampleCanvas.width = size;
+      sampleCanvas.height = size;
+      const ctx = sampleCanvas.getContext("2d", { willReadFrequently: true });
+      if (!ctx) return Array(size * size).fill("A");
+
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(image, sx, sy, sw, sh, 0, 0, size, size);
+
+      const pixels = ctx.getImageData(0, 0, size, size).data;
+      const codes = new Array(size * size);
+
+      for (let i = 0; i < size * size; i += 1) {
+        const px = i * 4;
+        const r = pixels[px];
+        const g = pixels[px + 1];
+        const b = pixels[px + 2];
+        const alpha = pixels[px + 3] / 255;
+        const luma = ((0.2126 * r) + (0.7152 * g) + (0.0722 * b)) * alpha + (1 - alpha) * 255;
+        codes[i] = getNearestMosaicCode(luma);
+      }
+
+      return codes;
+    }
+
+    async function renderOutlineOverview() {
+      if (!outlineModalImage) return;
+      let src = "";
+
+      const generatedRecord = await getStoredImage(IMAGE_DB_CONFIG.generatedMosaicKey);
+      if (generatedRecord && generatedRecord.blob instanceof Blob) {
+        if (outlineObjectUrl) {
+          URL.revokeObjectURL(outlineObjectUrl);
+        }
+        outlineObjectUrl = URL.createObjectURL(generatedRecord.blob);
+        src = outlineObjectUrl;
+      } else {
+        src = localStorage.getItem(STORAGE_KEYS.generatedMosaicFallback) || "";
+      }
+
+      if (!src) {
+        src = currentPlatePhotoSrc || "";
+      }
+
+      outlineModalImage.src = src;
+    }
+
+    function closeOutlineModal() {
+      if (!outlineModal) return;
+      outlineModal.classList.remove("is-open");
+      outlineModal.setAttribute("aria-hidden", "true");
+    }
+
+    async function openOutlineModal() {
+      if (!outlineModal) return;
+      outlineModal.classList.add("is-open");
+      outlineModal.setAttribute("aria-hidden", "false");
+      await renderOutlineOverview();
+    }
+
+    function bindOutlineModal() {
+      if (outlineButton) {
+        outlineButton.addEventListener("click", () => {
+          openOutlineModal();
+        });
+      }
+
+      if (outlineModalClose) {
+        outlineModalClose.addEventListener("click", () => {
+          closeOutlineModal();
+        });
+      }
+
+      if (outlineModal) {
+        outlineModal.addEventListener("click", (event) => {
+          if (event.target === outlineModal) {
+            closeOutlineModal();
+          }
+        });
+      }
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && outlineModal && outlineModal.classList.contains("is-open")) {
+          closeOutlineModal();
+        }
+      });
+    }
+
+    async function renderBoardColumnZoom() {
+      if (!board) return;
+
+      ensureBoardOverlayGrid();
+
+      if (!currentPlatePhotoSrc) {
+        clearBoardTiles();
+        return;
+      }
+
+      const renderId = ++boardRenderToken;
+
+      try {
+        const image = await loadImage(currentPlatePhotoSrc);
+        if (renderId !== boardRenderToken) return;
+
+        boardCellCodes = getBoardCellCodesForFragmentFromImage(image, selectedPlateIndex, selectedZoneIndex);
+        selectedBoardCells.clear();
+        selectionStartIndex = null;
+        for (let i = 0; i < cellGroupIds.length; i += 1) {
+          cellGroupIds[i] = null;
+        }
+        nextGroupId = 1;
+        restoreCurrentFragmentSelection();
+        repaintBoardCells();
+      } catch (error) {
+        clearBoardTiles();
+      }
+    }
+
+    async function applyPlatePreviewPhoto() {
+      if (!platePreview) return;
+
+      const editedRecord = await getStoredImage(IMAGE_DB_CONFIG.editedImageKey);
+      const originalRecord = editedRecord ? null : await getStoredImage(IMAGE_DB_CONFIG.originalImageKey);
+      const record = editedRecord || originalRecord;
+
+      if (record && record.blob instanceof Blob) {
+        if (plateObjectUrl) {
+          URL.revokeObjectURL(plateObjectUrl);
+        }
+        plateObjectUrl = URL.createObjectURL(record.blob);
+        setPlatePreviewPhotoSource(plateObjectUrl);
+        return;
+      }
+
+      const editedPhoto = localStorage.getItem(STORAGE_KEYS.editedImageFallback);
+      const uploadedPhoto = localStorage.getItem(STORAGE_KEYS.uploadedImageFallback);
+      const photoSource = editedPhoto || uploadedPhoto;
+
+      if (photoSource) {
+        setPlatePreviewPhotoSource(photoSource);
+        return;
+      }
+
+      currentPlatePhotoSrc = "";
+      clearBoardTiles();
+    }
+
+    ensureBoardOverlayGrid();
+    renderPlatePreview();
+    bindZonePicker();
+    bindPlateArrows();
+    bindModeActions();
+    bindOutlineModal();
+    setActiveZone(0);
+    applyPlatePreviewPhoto();
+
+    window.addEventListener("beforeunload", () => {
+      if (plateObjectUrl) {
+        URL.revokeObjectURL(plateObjectUrl);
+        plateObjectUrl = "";
+      }
+      if (outlineObjectUrl) {
+        URL.revokeObjectURL(outlineObjectUrl);
+        outlineObjectUrl = "";
+      }
+    });
+
+  </script>
+</body>
+</html>

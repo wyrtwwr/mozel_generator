@@ -1,0 +1,108 @@
+/* Unified transition buttons across generator steps */
+
+:root {
+  --gen-btn-dark: radial-gradient(315.13% 323.48% at 23.74% -32.66%, #5f565b 0%, #242022 100%);
+  --gen-btn-red: radial-gradient(315.13% 323.48% at 23.74% -32.66%, #bf1f32 0%, #590f17 100%);
+}
+
+.step-btn,
+.email-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.step-btn__main,
+.email-action__main {
+  min-height: 60px !important;
+  padding: 0 34px !important;
+  border-radius: 36px !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  box-sizing: border-box;
+}
+
+.step-btn__icon,
+.email-action__icon {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  flex: 0 0 60px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  box-sizing: border-box;
+}
+
+.step-btn__icon svg,
+.email-action__icon svg {
+  width: 39px !important;
+  height: 23px !important;
+}
+
+.step-btn__main--dark,
+.step-btn__icon--dark,
+.email-action__main--dark,
+.email-action__icon--dark {
+  border: 0 !important;
+  background: var(--gen-btn-dark) !important;
+  color: #ffffff !important;
+}
+
+.step-btn__main--red,
+.step-btn__icon--red,
+.email-action__main--outline,
+.email-action__icon--outline,
+.email-action--continue.is-active .email-action__main,
+.email-action--continue.is-active .email-action__icon {
+  border: 2px solid #000000 !important;
+  background: var(--gen-btn-red) !important;
+  color: #ffffff !important;
+}
+
+.email-action[aria-disabled="true"] .email-action__main,
+.email-action[aria-disabled="true"] .email-action__icon {
+  opacity: 0.55;
+}
+
+@media (max-width: 1000px) {
+  .step-btn__main,
+  .email-action__main {
+    height: 48px !important;
+    min-height: 48px !important;
+    font-size: 14px !important;
+    padding: 0 16px !important;
+    border-radius: 999px !important;
+  }
+
+  .step-btn__icon,
+  .email-action__icon {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    flex: 0 0 48px !important;
+  }
+
+  .step-btn__icon svg,
+  .email-action__icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}
+
+@media (max-width: 389px) {
+  .step-btn__main,
+  .email-action__main {
+    height: 48px !important;
+    min-height: 48px !important;
+    font-size: 14px !important;
+  }
+
+  .step-btn__icon,
+  .email-action__icon {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    flex: 0 0 46px !important;
+  }
+}

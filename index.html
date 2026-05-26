@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>generator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style_generate.css">
+    <link rel="stylesheet" href="style/style_generate_1000.css">
+    <style>
+      .page {
+        margin: 0 auto;
+      }
+
+      .code-step__actions a.is-disabled {
+        cursor: not-allowed;
+      }
+
+      .code-step__actions a.is-disabled .step-btn__main--red,
+      .code-step__actions a.is-disabled .step-btn__icon--red {
+        opacity: 0.55;
+      }
+
+      .code-step__actions a.is-disabled button {
+        cursor: not-allowed;
+      }
+
+      .code-step__label {
+        color: #000000;
+      }
+
+      #secret-code.code-step__input {
+        font-size: 30px;
+      }
+
+      #secret-code.code-step__input.is-valid {
+        color: #000000;
+      }
+
+      .code-step__status {
+        min-height: 24px;
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: #8a8fa0;
+      }
+
+      .code-step__status.is-valid {
+        color: #157347;
+      }
+
+      .code-step__status.is-invalid {
+        color: #b42318;
+      }
+
+      @media (max-width: 1000px) {
+        #secret-code.code-step__input {
+          font-size: 26px;
+        }
+
+        .code-step__status {
+          min-height: 20px;
+          font-size: 14px;
+          margin-top: 8px;
+        }
+      }
+
+      @media (min-width: 1921px) {
+        .site-footer {
+          margin-top: 95px;
+        }
+
+        .code-step {
+          padding-top: 95px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="style/style_generate_buttons_unified.css">
+</head>
+<body>
+<!-- меню -->
+
+
+
+
+<header>
+<div class="center_header">
+<div class="logo_box">
+     <h3  class="PC_h3">+7 900 000-00-00</h3>
+    <img src="img/logo.png" alt="">
+    <h3 class="PC_h3">info@mozle.ru</h3>
+
+
+</div>
+</div>
+    </header>
+ <!-- меню конец -->
+
+ <div class="menu_mobile">
+    <div class="center_header_mob">
+
+<div class="logo_box_mob">
+    <img src="img/logo.png" alt="">
+</div>
+</div>
+ </div>
+
+
+
+<div class="page">
+
+
+
+    <div class="code-step">
+  <div class="code-step__card">
+    <h2 class="code-step__title">Введите девятизначный код из инструкции.</h2>
+
+    <p class="code-step__text">
+      Код находится в инструкции к набору мозаики. Если у вас есть несколько
+      наборов, достаточно ввести только один секретный код.
+    </p>
+
+    <label for="secret-code" class="code-step__label">Введите код</label>
+
+<input
+  id="secret-code"
+  class="code-step__input"
+  type="text"
+  placeholder="XXX-XXX-XXX"
+  maxlength="11"
+  inputmode="text"
+  autocomplete="off"
+/>
+<p id="code-status" class="code-step__status" aria-live="polite"></p>
+
+
+<div class="code-step__actions">
+<a href="index.html">
+  <div class="step-btn step-btn--back">
+    <button class="step-btn__icon step-btn__icon--dark" type="button" aria-label="Назад">
+<svg width="41" height="23" viewBox="0 0 41 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M38.6357 9.54596C39.4642 9.54596 40.1357 10.2175 40.1357 11.046C40.1357 11.8744 39.4642 12.546 38.6357 12.546V11.046V9.54596ZM0.439262 12.1066C-0.146523 11.5208 -0.146523 10.5711 0.439262 9.9853L9.9852 0.439358C10.571 -0.146429 11.5207 -0.146429 12.1065 0.439358C12.6923 1.02514 12.6923 1.97489 12.1065 2.56068L3.62124 11.046L12.1065 19.5312C12.6923 20.117 12.6923 21.0668 12.1065 21.6526C11.5207 22.2383 10.571 22.2383 9.9852 21.6526L0.439262 12.1066ZM38.6357 11.046V12.546H1.49992V11.046V9.54596H38.6357V11.046Z" fill="white" />
+</svg>
+    </button>
+
+    <button class="step-btn__main step-btn__main--dark" type="button">
+      НАЗАД
+    </button>
+  </div>
+
+</a>
+
+  <a id="next-step-link" href="generate_step2.html">
+      <div class="step-btn step-btn--next">
+    
+    <button class="step-btn__main step-btn__main--red" type="button">
+      ДАЛЕЕ
+    </button>
+
+    <button class="step-btn__icon step-btn__icon--red" type="button" aria-label="Далее">
+ <svg width="41" height="41" viewBox="0 0 41 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1.5 9.54596C0.671573 9.54596 0 10.2175 0 11.046C0 11.8744 0.671573 12.546 1.5 12.546V11.046V9.54596ZM39.6965 12.1066C40.2823 11.5208 40.2823 10.5711 39.6965 9.9853L30.1505 0.439358C29.5648 -0.146429 28.615 -0.146429 28.0292 0.439358C27.4434 1.02514 27.4434 1.97489 28.0292 2.56068L36.5145 11.046L28.0292 19.5312C27.4434 20.117 27.4434 21.0668 28.0292 21.6526C28.615 22.2383 29.5648 22.2383 30.1505 21.6526L39.6965 12.1066ZM1.5 11.046V12.546H38.6358V11.046V9.54596H1.5V11.046Z" fill="white" />
+</svg>
+    </button>
+  </div>
+  </a>
+
+
+</div>
+
+
+
+  </div>
+</div> 
+</div>
+ <!-- меню mobile -->
+
+
+
+
+
+<footer class="site-footer">
+    <!-- Основная навигация и информация -->
+    <div class="footer-container">
+
+        <!-- Левый блок: Название / Логотип (гипотетический) -->
+        <div class="footer-brand">
+            <a href="/" class="brand-link">
+                <img class="footer_logo" src="img/logo.png" alt="">
+            </a>
+            <!-- Кнопка/ссылка для каталога, если нужно выделить -->
+           
+        </div>
+
+        <!-- Центральный блок: Основное меню (первая колонка) -->
+        <div class="footer-nav">
+            <ul class="footer-menu">
+                 <li><a href="#">Каталог</a></li>
+                <li><a href="#">Получить инструкцию</a></li>
+                <li><a href="#">Загрузить фото</a></li>
+                <li><a href="#">Отзывы покупателей</a></li>
+                <li><a href="#">Дилерам и партнёрам</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </div>
+
+        <!-- Правый блок: Юридические документы и контакты (вторая колонка) -->
+        <div class="footer-legal">
+            <ul class="legal-links">
+                <li><a href="#">Политика конфиденциальности</a></li>
+                <li><a href="#">Политика использования файлов cookies</a></li>
+                <li><a href="#">Обработка персональных данных</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-contacts">
+            <a href="tel:+79000000000" class="contact-phone">+7 900 000-00-00</a>
+            <a href="mailto:info@mozle.ru" class="contact-email">info@mozle.ru</a>
+            <address class="contact-address">
+                101000, г. Москва, ул. Тверская, д. 15/2, корп. 1, офис 177
+            </address>
+        </div>
+    </div>
+
+    <!-- Нижняя полоса с копирайтом -->
+    <div class="footer-bottom">
+        <p class="copyright">2025 © MozLe</p>
+    </div>
+</footer>
+
+
+
+</body>
+<script>
+
+    const burger = document.getElementById('burger');
+const menu = document.getElementById('menu2');
+
+if (burger && menu) {
+    burger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const wrapper = document.querySelector('.cards-wrapper');
+const cards = document.querySelectorAll('.card');
+const prev = document.querySelector('.arrow-prev');
+const next = document.querySelector('.arrow-next');
+
+if (wrapper && cards.length && prev && next) {
+  let currentIndex = 0;
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isSwiping = false;
+
+  function updateActive() {
+    cards.forEach(card => card.classList.remove('active'));
+    cards[currentIndex].classList.add('active');
+  }
+
+  function goToNext() {
+    if (currentIndex < cards.length - 1) {
+      currentIndex++;
+      updateActive();
+    }
+  }
+
+  function goToPrev() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateActive();
+    }
+  }
+
+  next.addEventListener('click', goToNext);
+  prev.addEventListener('click', goToPrev);
+
+  updateActive();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ const secretCodeInput = document.getElementById("secret-code");
+const nextStepLink = document.getElementById("next-step-link");
+const codeStatus = document.getElementById("code-status");
+
+if (secretCodeInput && nextStepLink && codeStatus) {
+  const nextStepHref = nextStepLink.getAttribute("href") || "generate_step2.html";
+  const validCode = "111111111";
+
+  function getDigits(value) {
+    return value.replace(/\D/g, "").slice(0, 9);
+  }
+
+  function setNextStepState(enabled) {
+    nextStepLink.classList.toggle("is-disabled", !enabled);
+    nextStepLink.setAttribute("aria-disabled", String(!enabled));
+
+    if (enabled) {
+      nextStepLink.setAttribute("href", nextStepHref);
+      nextStepLink.removeAttribute("tabindex");
+    } else {
+      nextStepLink.removeAttribute("href");
+      nextStepLink.setAttribute("tabindex", "-1");
+    }
+  }
+
+  function setCodeStatus(state) {
+    codeStatus.classList.remove("is-valid", "is-invalid");
+
+    if (state === "valid") {
+      codeStatus.textContent = "Код корректен.";
+      codeStatus.classList.add("is-valid");
+      secretCodeInput.classList.add("is-valid");
+      return;
+    }
+
+    secretCodeInput.classList.remove("is-valid");
+
+    if (state === "invalid") {
+      codeStatus.textContent = "Код некорректен.";
+      codeStatus.classList.add("is-invalid");
+      return;
+    }
+
+    if (state === "typing") {
+      codeStatus.textContent = "Введите 9 цифр кода.";
+      return;
+    }
+
+    codeStatus.textContent = "";
+  }
+
+  function formatAndValidateCode() {
+    const digits = getDigits(secretCodeInput.value);
+    const formatted = digits.match(/.{1,3}/g);
+    secretCodeInput.value = formatted ? formatted.join("-") : "";
+    const isValid = digits === validCode;
+    setNextStepState(isValid);
+
+    if (!digits.length) {
+      setCodeStatus("empty");
+      return;
+    }
+
+    if (isValid) {
+      setCodeStatus("valid");
+      return;
+    }
+
+    setCodeStatus(digits.length === 9 ? "invalid" : "typing");
+  }
+
+  secretCodeInput.addEventListener("input", formatAndValidateCode);
+
+  nextStepLink.addEventListener("click", function (event) {
+    if (getDigits(secretCodeInput.value) !== validCode) {
+      event.preventDefault();
+      setCodeStatus("invalid");
+    }
+  });
+
+  formatAndValidateCode();
+}
+</script>
+</html>

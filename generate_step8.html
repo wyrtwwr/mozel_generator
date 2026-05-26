@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>step8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style_generate.css">
+  <link rel="stylesheet" href="style/style_generate_1000_step2.css">
+  <link rel="stylesheet" href="style/style_generate_1000_step8.css">
+    <link rel="stylesheet" href="style/style_generate_buttons_unified.css">
+</head>
+<body>
+<header>
+  <div class="center_header">
+    <div class="logo_box">
+      <h3 class="PC_h3">+7 900 000-00-00</h3>
+      <img src="img/logo.png" alt="">
+      <h3 class="PC_h3">info@mozle.ru</h3>
+    </div>
+</div>
+</header>
+
+<div class="menu_mobile">
+  <div class="center_header_mob">
+    <div class="logo_box_mob">
+      <img src="img/logo.png" alt="">
+</div>
+</div>
+</div>
+
+<div class="page">
+  <section class="select-step">
+    <h2 class="select-step__title">Выберите наиболее удачное изображение мозаики из предложенных.<br>Примените необходимые режимы для улучшения выбранного изображения</h2>
+
+    <div class="select-step__workspace">
+      <div class="select-step__main-column">
+        <div class="palette-row" data-toggle-group="palette">
+          <button class="palette-chip is-active" type="button" data-toggle-item>
+            <span class="palette-chip__label">A</span>
+            <span class="palette-chip__swatch palette-chip__swatch--a"></span>
+            <span class="palette-chip__count">84</span>
+          </button>
+          <button class="palette-chip" type="button" data-toggle-item>
+            <span class="palette-chip__label">B</span>
+            <span class="palette-chip__swatch palette-chip__swatch--b"></span>
+            <span class="palette-chip__count">124</span>
+          </button>
+          <button class="palette-chip" type="button" data-toggle-item>
+            <span class="palette-chip__label">C</span>
+            <span class="palette-chip__swatch palette-chip__swatch--c"></span>
+            <span class="palette-chip__count">263</span>
+          </button>
+          <button class="palette-chip" type="button" data-toggle-item>
+            <span class="palette-chip__label">D</span>
+            <span class="palette-chip__swatch palette-chip__swatch--d"></span>
+            <span class="palette-chip__count">142</span>
+          </button>
+          <button class="palette-chip" type="button" data-toggle-item>
+            <span class="palette-chip__label">X</span>
+            <span class="palette-chip__swatch palette-chip__swatch--x"></span>
+            <span class="palette-chip__count">65</span>
+          </button>
+          <button class="palette-chip" type="button" data-toggle-item>
+            <span class="palette-chip__label">Y</span>
+            <span class="palette-chip__swatch palette-chip__swatch--y"></span>
+            <span class="palette-chip__count">352</span>
+          </button>
+          <button class="palette-chip" type="button" data-toggle-item>
+            <span class="palette-chip__label">Z</span>
+            <span class="palette-chip__swatch palette-chip__swatch--z"></span>
+            <span class="palette-chip__count">286</span>
+          </button>
+        </div>
+
+        <div class="select-step__preview-wrap">
+          <img class="select-step__preview js-image-source" id="step8-preview-image" alt="Предпросмотр изображения">
+          <div class="select-step__preview-empty" id="step8-preview-empty">Изображение не загружено</div>
+        </div>
+      </div>
+
+      <div class="select-step__controls">
+        <div class="select-step__control-group select-step__control-group--turbo" data-hint-group="turbo">
+          <div class="option-row option-row--single" data-toggle-group="turbo" data-toggle-allow-empty="true" data-hint-trigger="turbo" tabindex="0">
+            <button class="option-pill" type="button" data-toggle-item>РЕЖИМ “ТУРБО”</button>
+          </div>
+
+          <div class="select-hint select-hint--turbo" id="turbo-hint" data-hint="turbo" aria-hidden="true">
+            <svg class="select-hint__arrow select-hint__arrow--turbo select-hint__arrow--desktop" width="124" height="102" viewBox="0 0 124 102" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M0.969518 70.0919C0.0230348 70.6614 -0.282618 71.8902 0.286813 72.8367L9.56625 88.2605C10.1357 89.2069 11.3646 89.5126 12.3111 88.9432C13.2575 88.3737 13.5632 87.1448 12.9938 86.1984L4.74536 72.4884L18.4554 64.24C19.4018 63.6705 19.7075 62.4417 19.1381 61.4952C18.5686 60.5487 17.3397 60.243 16.3933 60.8125L0.969518 70.0919ZM123.085 30.727C123.617 29.7589 123.263 28.5429 122.295 28.011C121.327 27.4792 120.111 27.8328 119.579 28.8008L121.332 29.7639L123.085 30.727ZM2.00056 71.8057L1.51782 73.7465C34.3931 81.9234 57.9069 83.9652 76.7154 77.4129C95.6285 70.8241 109.36 55.7068 123.085 30.727L121.332 29.7639L119.579 28.8008C106.029 53.4637 92.9204 67.5318 75.3995 73.6355C57.7738 79.7757 35.2594 78.017 2.48331 69.8648L2.00056 71.8057Z" fill="#BF1F32"/>
+              <path d="M2.48331 69.8648C2.16148 71.1587 1.83965 72.4526 1.51782 73.7465C3.83437 74.4638 6.04621 75.1298 8.33496 75.7851C28.6848 81.3987 50.5996 86.3532 72.6899 80.7959C95.2855 75.216 110.32 55.7564 119.89 37.1294C121.027 34.9614 122.03 32.93 123.085 30.727C123.306 30.2609 123.356 29.7246 123.205 29.2261C123.055 28.7277 122.719 28.3094 122.267 28.0614C121.816 27.8134 121.282 27.7539 120.781 27.8941C120.279 28.0341 119.853 28.3639 119.579 28.8008C119.579 28.8008 119.579 28.8008 119.579 28.8008C118.302 30.8382 117.094 32.7036 115.773 34.6974C104.347 52.0447 90.0615 68.2037 70.6041 72.9541C51.3065 77.917 30.012 74.5933 9.41063 71.1259C7.09528 70.7178 4.84578 70.3109 2.48331 69.8648Z" fill="#BF1F32"/>
+            </svg>
+            <svg class="select-hint__arrow select-hint__arrow--turbo select-hint__arrow--mobile" width="127" height="135" viewBox="0 0 127 135" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M40.6359 1.11101C40.1445 0.121753 38.9442 -0.281877 37.955 0.209481L21.834 8.21669C20.8448 8.70804 20.4412 9.90832 20.9325 10.8976C21.4239 11.8869 22.6242 12.2905 23.6134 11.7991L37.9432 4.6816L45.0607 19.0113C45.552 20.0006 46.7523 20.4042 47.7416 19.9129C48.7308 19.4215 49.1345 18.2212 48.6431 17.232L40.6359 1.11101ZM86.9781 134.16C87.9171 134.742 89.1499 134.452 89.7314 133.513C90.313 132.574 90.0232 131.341 89.0841 130.759L88.0311 132.46L86.9781 134.16ZM38.8447 2.0007L36.949 1.36322C26.1243 33.5531 23.0779 57.3496 30.7487 77.9238C38.4131 98.4807 56.603 115.349 86.9781 134.16L88.0311 132.46L89.0841 130.759C58.8668 112.046 41.6727 95.7734 34.4967 76.5264C27.3271 57.2965 29.9837 34.6258 40.7404 2.63818L38.8447 2.0007Z" fill="#BF1F32"/>
+              <path d="M40.7404 2.63818C39.4766 2.21319 38.2128 1.78821 36.949 1.36322C35.959 3.87854 35.0577 6.23472 34.1435 8.76662C26.3477 30.7102 19.8742 56.052 29.3334 79.9728C38.9623 103.639 60.0688 118.308 80.0964 130.26C82.4004 131.61 84.6136 132.857 86.9781 134.16C87.4317 134.409 87.9657 134.488 88.4724 134.364C88.979 134.239 89.4154 133.925 89.6873 133.486C89.9593 133.046 90.0466 132.516 89.932 132.007C89.8176 131.498 89.509 131.055 89.0841 130.759C89.0841 130.759 89.0841 130.759 89.0841 130.759C86.887 129.237 84.8391 127.786 82.702 126.251C64.032 112.633 45.1017 97.5731 36.8744 76.9767C28.5687 56.3533 33.0272 32.5758 38.7111 10.1816C39.3767 7.61792 40.0198 5.21296 40.7404 2.63818Z" fill="#BF1F32"/>
+            </svg>
+            <div class="select-hint__card">
+              <div class="select-hint__head">РЕЖИМ “ТУРБО”</div>
+              <div class="select-hint__body">
+                <p class="select-hint__text">Включите режим “ТУРБО” для большей контрастности и чёткости изображения.</p>
+                <button class="select-hint__close" type="button" data-hint-close="turbo">ПОНЯТНО</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="select-step__control-group select-step__control-group--tone" data-hint-group="tone">
+          <div class="option-row option-row--segmented" data-toggle-group="tone" data-hint-trigger="tone" tabindex="0">
+            <button class="option-pill" type="button" data-toggle-item>СВЕТЛЫЙ</button>
+            <button class="option-pill is-active" type="button" data-toggle-item>СТАНДАРТНЫЙ</button>
+            <button class="option-pill" type="button" data-toggle-item>ТЁМНЫЙ</button>
+          </div>
+
+          <div class="select-hint select-hint--tone" id="tone-hint" data-hint="tone" aria-hidden="true">
+            <svg class="select-hint__arrow select-hint__arrow--tone select-hint__arrow--desktop" width="91" height="79" viewBox="0 0 91 79" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M0.701563 61.7786C-0.138366 62.4959 -0.237741 63.7583 0.479611 64.5983L12.1695 78.2857C12.8868 79.1257 14.1493 79.225 14.9892 78.5077C15.8291 77.7903 15.9285 76.5279 15.2111 75.688L4.82014 63.5213L16.9868 53.1303C17.8267 52.413 17.9261 51.1506 17.2087 50.3106C16.4914 49.4707 15.229 49.3713 14.389 50.0887L0.701563 61.7786ZM90.8946 11.3911C91.2469 10.3442 90.6838 9.20992 89.6369 8.85763C88.5901 8.50533 87.4558 9.06841 87.1035 10.1153L88.999 10.7532L90.8946 11.3911ZM2.00044 63.2994L1.84349 65.2932C28.0941 67.3596 46.5611 65.6606 60.4192 57.3583C74.3323 49.0231 83.1894 34.2877 90.8946 11.3911L88.999 10.7532L87.1035 10.1153C79.4897 32.7404 71.0292 46.3391 58.3635 53.927C45.6429 61.5478 28.2701 63.361 2.15739 61.3055L2.00044 63.2994Z" fill="#BF1F32"/>
+              <path d="M2.15739 61.3055C2.05276 62.6348 1.94812 63.964 1.84349 65.2932C3.78485 65.5834 5.62253 65.8424 7.54655 66.0805C24.4485 68.0108 42.9722 68.991 59.6545 60.1643C76.5096 51.097 84.5301 33.1959 89.3534 16.9598C89.9152 15.0691 90.3963 13.3003 90.8946 11.3911C91.0224 10.8943 90.9747 10.3606 90.738 9.89924C90.5015 9.43797 90.0991 9.0881 89.6143 8.92496C89.1295 8.76182 88.5974 8.79718 88.1301 9.02163C87.6627 9.24601 87.302 9.64231 87.1035 10.1153C87.1035 10.1153 87.1035 10.1153 87.1035 10.1153C86.3559 11.9054 85.6411 13.5527 84.8644 15.3124C78.0545 30.6242 69.6699 45.6872 55.7732 53.0384C41.9455 60.4959 24.6248 61.0892 7.82977 61.3071C5.92529 61.3175 4.09653 61.3204 2.15739 61.3055Z" fill="#BF1F32"/>
+            </svg>
+            <svg class="select-hint__arrow select-hint__arrow--tone select-hint__arrow--mobile" width="158" height="179" viewBox="0 0 158 179" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M78.9074 1.91816C78.9528 0.814523 79.8842 -0.0434096 80.9878 0.00192147L98.9727 0.740646C100.076 0.785977 100.934 1.7174 100.889 2.82104C100.844 3.92468 99.9122 4.78261 98.8085 4.73727L82.822 4.08064L82.1654 20.0672C82.12 21.1708 81.1886 22.0287 80.085 21.9834C78.9813 21.9381 78.1234 21.0066 78.1687 19.903L78.9074 1.91816ZM95.8597 177.793C95.2428 178.709 93.9999 178.952 93.0837 178.335C92.1675 177.718 91.9249 176.475 92.5418 175.559L94.2008 176.676L95.8597 177.793ZM80.9058 2.00024L82.3768 0.645258C111.764 32.5499 127.749 58.436 129.928 85.7444C132.108 113.057 120.438 141.292 95.8597 177.793L94.2008 176.676L92.5418 175.559C117.003 139.232 128.008 111.964 125.941 86.0625C123.874 60.1571 108.692 35.1192 79.4347 3.35522L80.9058 2.00024Z" fill="#BF1F32"/>
+              <path d="M79.4347 3.35522C80.4154 2.4519 81.3961 1.54858 82.3768 0.645258C84.7695 3.04134 86.9883 5.30541 89.3017 7.74624C109.265 29.0941 129.489 54.3059 132.008 85.9502C134.243 117.592 118.127 145.596 101.63 169.725C99.7165 172.484 97.8634 175.062 95.8597 177.793C95.5515 178.212 95.0963 178.506 94.5817 178.602C94.0672 178.698 93.5376 178.591 93.1068 178.301C92.6761 178.01 92.3769 177.56 92.2728 177.047C92.1685 176.534 92.2698 176.002 92.5418 175.559C92.5418 175.559 92.5418 175.559 92.5418 175.559C94.3021 172.698 95.9197 170.004 97.6034 167.147C112.177 142.047 126.053 114.78 123.916 86.5596C121.813 58.324 103.93 33.5123 85.7122 10.9054C83.6109 8.33195 81.6068 5.91664 79.4347 3.35522Z" fill="#BF1F32"/>
+            </svg>
+            <div class="select-hint__card">
+              <div class="select-hint__head">ЯРКОСТЬ ИЗОБРАЖЕНИЯ</div>
+              <div class="select-hint__body">
+                <p class="select-hint__text">Для изменения яркости изображения выберите одну из предоставленных настроек.</p>
+                <button class="select-hint__close" type="button" data-hint-close="tone">ПОНЯТНО</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="select-step__control-group select-step__control-group--frame" data-hint-group="frame">
+          <div class="option-row option-row--segmented option-row--frame" data-toggle-group="frame" data-hint-trigger="frame" tabindex="0">
+            <button class="option-pill" type="button" data-toggle-item>БЕЗ РАМКИ</button>
+            <button class="option-pill is-active" type="button" data-toggle-item>С РАМКОЙ</button>
+          </div>
+
+          <div class="select-hint select-hint--frame" id="frame-hint" data-hint="frame" aria-hidden="true">
+            <svg class="select-hint__arrow select-hint__arrow--frame select-hint__arrow--desktop" width="91" height="79" viewBox="0 0 91 79" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M0.701563 61.7786C-0.138366 62.4959 -0.237741 63.7583 0.479611 64.5983L12.1695 78.2857C12.8868 79.1257 14.1493 79.225 14.9892 78.5077C15.8291 77.7903 15.9285 76.5279 15.2111 75.688L4.82014 63.5213L16.9868 53.1303C17.8267 52.413 17.9261 51.1506 17.2087 50.3106C16.4914 49.4707 15.229 49.3713 14.389 50.0887L0.701563 61.7786ZM90.8946 11.3911C91.2469 10.3442 90.6838 9.20992 89.6369 8.85763C88.5901 8.50533 87.4558 9.06841 87.1035 10.1153L88.999 10.7532L90.8946 11.3911ZM2.00044 63.2994L1.84349 65.2932C28.0941 67.3596 46.5611 65.6606 60.4192 57.3583C74.3323 49.0231 83.1894 34.2877 90.8946 11.3911L88.999 10.7532L87.1035 10.1153C79.4897 32.7404 71.0292 46.3391 58.3635 53.927C45.6429 61.5478 28.2701 63.361 2.15739 61.3055L2.00044 63.2994Z" fill="#BF1F32"/>
+              <path d="M2.15739 61.3055C2.05276 62.6348 1.94812 63.964 1.84349 65.2932C3.78485 65.5834 5.62253 65.8424 7.54655 66.0805C24.4485 68.0108 42.9722 68.991 59.6545 60.1643C76.5096 51.097 84.5301 33.1959 89.3534 16.9598C89.9152 15.0691 90.3963 13.3003 90.8946 11.3911C91.0224 10.8943 90.9747 10.3606 90.738 9.89924C90.5015 9.43797 90.0991 9.0881 89.6143 8.92496C89.1295 8.76182 88.5974 8.79718 88.1301 9.02163C87.6627 9.24601 87.302 9.64231 87.1035 10.1153C87.1035 10.1153 87.1035 10.1153 87.1035 10.1153C86.3559 11.9054 85.6411 13.5527 84.8644 15.3124C78.0545 30.6242 69.6699 45.6872 55.7732 53.0384C41.9455 60.4959 24.6248 61.0892 7.82977 61.3071C5.92529 61.3175 4.09653 61.3204 2.15739 61.3055Z" fill="#BF1F32"/>
+            </svg>
+            <svg class="select-hint__arrow select-hint__arrow--frame select-hint__arrow--mobile" width="155" height="254" viewBox="0 0 155 254" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M86.9893 1.15246C86.5212 0.15199 85.3307 -0.279575 84.3302 0.188526L68.0266 7.81678C67.0261 8.28489 66.5945 9.47541 67.0626 10.4759C67.5307 11.4764 68.7213 11.9079 69.7217 11.4398L84.2139 4.65915L90.9946 19.1513C91.4627 20.1518 92.6532 20.5833 93.6537 20.1152C94.6541 19.6471 95.0857 18.4566 94.6176 17.4561L86.9893 1.15246ZM67.0402 252.762C67.7881 253.575 69.0533 253.628 69.8662 252.88C70.6791 252.132 70.7317 250.867 69.9839 250.054L68.512 251.408L67.0402 252.762ZM85.1778 2.00004L83.2975 1.31845C56.3264 75.7207 41.6595 127.002 39.0124 165.409C36.3524 204.002 45.8251 229.704 67.0402 252.762L68.512 251.408L69.9839 250.054C49.5788 227.876 40.4115 203.282 43.0029 165.684C45.6072 127.899 60.0832 77.0943 87.0581 2.68166L85.1778 2.00004Z" fill="#BF1F32"/>
+              <path d="M87.0581 2.68166C85.8046 2.22725 84.5511 1.77284 83.2975 1.31845C81.6426 5.48131 80.0334 9.57274 78.4699 13.5947C64.2884 50.4175 50.9696 87.8018 42.6108 126.778C34.4941 164.72 31.4981 210.369 58.1947 242.707C60.9614 246.239 63.9053 249.557 67.0402 252.762C67.4059 253.135 67.9015 253.36 68.4264 253.379C68.9512 253.398 69.461 253.21 69.8452 252.857C70.2294 252.504 70.4583 252.011 70.4831 251.486C70.5079 250.962 70.3253 250.449 69.9839 250.054C69.9839 250.054 69.9839 250.054 69.9839 250.054C67.1365 246.756 64.4943 243.39 62.0394 239.863C38.6221 207.901 42.6634 166.032 50.5524 128.444C58.74 90.2302 70.9126 52.6745 82.9745 15.199C84.3023 11.1032 85.6634 6.93139 87.0581 2.68166Z" fill="#BF1F32"/>
+            </svg>
+            <div class="select-hint__card">
+              <div class="select-hint__head">ДОБАВИТЬ “РАМКУ”</div>
+              <div class="select-hint__body">
+                <p class="select-hint__text">Включение этого режима обеспечивает белую рамку по периметру изображения.</p>
+                <button class="select-hint__close" type="button" data-hint-close="frame">ПОНЯТНО</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="select-hint-backdrop" id="select-hint-backdrop" aria-hidden="true"></div>
+
+    <div class="thumbs-area">
+      <button class="thumbs-arrow thumbs-arrow--prev" type="button" aria-label="Предыдущие изображения" data-scroll-thumbs="prev">
+        <svg viewBox="0 0 41 23" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <path d="M38.6357 9.54596C39.4642 9.54596 40.1357 10.2175 40.1357 11.046C40.1357 11.8744 39.4642 12.546 38.6357 12.546V11.046V9.54596ZM0.439262 12.1066C-0.146523 11.5208 -0.146523 10.5711 0.439262 9.9853L9.9852 0.439358C10.571 -0.146429 11.5207 -0.146429 12.1065 0.439358C12.6923 1.02514 12.6923 1.97489 12.1065 2.56068L3.62124 11.046L12.1065 19.5312C12.6923 20.117 12.6923 21.0668 12.1065 21.6526C11.5207 22.2383 10.571 22.2383 9.9852 21.6526L0.439262 12.1066ZM38.6357 11.046V12.546H1.49992V11.046V9.54596H38.6357V11.046Z" fill="currentColor"/>
+        </svg>
+      </button>
+
+      <div class="thumbs-track" id="thumbs-track" data-toggle-group="thumbs">
+        <button class="thumb-card" type="button" data-toggle-item>
+          <img class="thumb-card__image js-image-source" alt="Вариант 1">
+        </button>
+        <button class="thumb-card" type="button" data-toggle-item>
+          <img class="thumb-card__image js-image-source" alt="Вариант 2">
+        </button>
+        <button class="thumb-card" type="button" data-toggle-item>
+          <img class="thumb-card__image js-image-source" alt="Вариант 3">
+        </button>
+        <button class="thumb-card is-active" type="button" data-toggle-item>
+          <img class="thumb-card__image js-image-source" alt="Вариант 4">
+        </button>
+        <button class="thumb-card" type="button" data-toggle-item>
+          <img class="thumb-card__image js-image-source" alt="Вариант 5">
+        </button>
+        <button class="thumb-card" type="button" data-toggle-item>
+          <img class="thumb-card__image js-image-source" alt="Вариант 6">
+        </button>
+        <button class="thumb-card" type="button" data-toggle-item>
+          <img class="thumb-card__image js-image-source" alt="Вариант 7">
+        </button>
+      </div>
+
+      <button class="thumbs-arrow thumbs-arrow--next" type="button" aria-label="Следующие изображения" data-scroll-thumbs="next">
+        <svg viewBox="0 0 41 23" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <path d="M1.5 9.54596C0.671573 9.54596 0 10.2175 0 11.046C0 11.8744 0.671573 12.546 1.5 12.546V11.046V9.54596ZM39.6965 12.1066C40.2823 11.5208 40.2823 10.5711 39.6965 9.9853L30.1505 0.439358C29.5648 -0.146429 28.615 -0.146429 28.0292 0.439358C27.4434 1.02514 27.4434 1.97489 28.0292 2.56068L36.5145 11.046L28.0292 19.5312C27.4434 20.117 27.4434 21.0668 28.0292 21.6526C28.615 22.2383 29.5648 22.2383 30.1505 21.6526L39.6965 12.1066ZM1.5 11.046V12.546H38.6358V11.046V9.54596H1.5V11.046Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="code-step__actions select-step__actions">
+      <a href="generate_step7.html">
+        <div class="step-btn step-btn--back">
+          <button class="step-btn__icon step-btn__icon--dark" type="button" aria-label="Назад">
+            <svg width="41" height="23" viewBox="0 0 41 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M38.6357 9.54596C39.4642 9.54596 40.1357 10.2175 40.1357 11.046C40.1357 11.8744 39.4642 12.546 38.6357 12.546V11.046V9.54596ZM0.439262 12.1066C-0.146523 11.5208 -0.146523 10.5711 0.439262 9.9853L9.9852 0.439358C10.571 -0.146429 11.5207 -0.146429 12.1065 0.439358C12.6923 1.02514 12.6923 1.97489 12.1065 2.56068L3.62124 11.046L12.1065 19.5312C12.6923 20.117 12.6923 21.0668 12.1065 21.6526C11.5207 22.2383 10.571 22.2383 9.9852 21.6526L0.439262 12.1066ZM38.6357 11.046V12.546H1.49992V11.046V9.54596H38.6357V11.046Z" fill="white"/>
+            </svg>
+          </button>
+
+          <button class="step-btn__main step-btn__main--dark" type="button">НАЗАД</button>
+        </div>
+      </a>
+
+      <a href="generate_step9.html">
+        <div class="step-btn step-btn--next">
+          <button class="step-btn__main step-btn__main--red" type="button">ДАЛЕЕ</button>
+
+          <button class="step-btn__icon step-btn__icon--red" type="button" aria-label="Далее">
+            <svg width="41" height="23" viewBox="0 0 41 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 9.54596C0.671573 9.54596 0 10.2175 0 11.046C0 11.8744 0.671573 12.546 1.5 12.546V11.046V9.54596ZM39.6965 12.1066C40.2823 11.5208 40.2823 10.5711 39.6965 9.9853L30.1505 0.439358C29.5648 -0.146429 28.615 -0.146429 28.0292 0.439358C27.4434 1.02514 27.4434 1.97489 28.0292 2.56068L36.5145 11.046L28.0292 19.5312C27.4434 20.117 27.4434 21.0668 28.0292 21.6526C28.615 22.2383 29.5648 22.2383 30.1505 21.6526L39.6965 12.1066ZM1.5 11.046V12.546H38.6358V11.046V9.54596H1.5V11.046Z" fill="white"/>
+            </svg>
+          </button>
+        </div>
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <a href="/" class="brand-link">
+        <img class="footer_logo" src="img/logo.png" alt="">
+      </a>
+    </div>
+
+    <div class="footer-nav">
+      <ul class="footer-menu">
+        <li><a href="#">Каталог</a></li>
+        <li><a href="#">Получить инструкцию</a></li>
+        <li><a href="#">Загрузить фото</a></li>
+        <li><a href="#">Отзывы покупателей</a></li>
+        <li><a href="#">Дилерам и партнёрам</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-legal">
+      <ul class="legal-links">
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Политика использования файлов cookies</a></li>
+        <li><a href="#">Обработка персональных данных</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contacts">
+      <a href="tel:+79000000000" class="contact-phone">+7 900 000-00-00</a>
+      <a href="mailto:info@mozle.ru" class="contact-email">info@mozle.ru</a>
+      <address class="contact-address">
+        101000, г. Москва, ул. Тверская, д. 15/2, корп. 1, офис 177
+      </address>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="copyright">2025 © MozLe</p>
+  </div>
+</footer>
+
+<script>
+  const IMAGE_DB_CONFIG = {
+    name: "mozle_step_storage",
+    version: 1,
+    storeName: "files",
+    originalImageKey: "step4_original_image",
+    editedImageKey: "step6_edited_image",
+    generatedMosaicKey: "step8_generated_mosaic"
+  };
+
+  const STORAGE_KEYS = {
+    canvasSize: "mozle_canvas_size",
+    editorOrientation: "mozle_editor_orientation",
+    uploadedImageName: "mozle_uploaded_image_name",
+    uploadedImageFallback: "mozle_uploaded_image_data",
+    editedImageFallback: "mozle_edited_image_data",
+    generatedMosaicFallback: "mozle_generated_mosaic_data"
+  };
+
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("menu2");
+  const paletteRow = document.querySelector(".palette-row");
+  const thumbsArea = document.querySelector(".thumbs-area");
+  const previewWrap = document.querySelector(".select-step__preview-wrap");
+  const previewImage = document.getElementById("step8-preview-image");
+  const previewEmpty = document.getElementById("step8-preview-empty");
+  const imageNodes = document.querySelectorAll(".js-image-source");
+  const thumbsTrack = document.getElementById("thumbs-track");
+  const actionsBlock = document.querySelector(".select-step__actions");
+  const hintTriggers = document.querySelectorAll("[data-hint-trigger]");
+  const hintCloseButtons = document.querySelectorAll("[data-hint-close]");
+  const hintBackdrop = document.getElementById("select-hint-backdrop");
+  const mobileHintsMedia = window.matchMedia("(max-width: 1000px)");
+  const closedHints = new Set();
+  const shownHints = new Set();
+
+  let currentObjectUrl = "";
+  let currentSourceImage = "";
+  let lastGeneratedMosaicData = "";
+  let mosaicRenderId = 0;
+
+  const LEGO_GRAY_PALETTE = [
+    { hex: "#f2f2f2", luma: 242 },
+    { hex: "#dcdcdc", luma: 220 },
+    { hex: "#bababa", luma: 186 },
+    { hex: "#9d9d9d", luma: 157 },
+    { hex: "#7c7c7c", luma: 124 },
+    { hex: "#474747", luma: 71 },
+    { hex: "#171717", luma: 23 }
+  ];
+
+  if (burger && menu) {
+    burger.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+  }
+
+  function parseCanvasFormat(formatValue) {
+    const [rowsRaw, colsRaw] = (formatValue || "2x3").toLowerCase().split("x");
+    const rows = Number.parseInt(rowsRaw, 10);
+    const cols = Number.parseInt(colsRaw, 10);
+
+    return {
+      rows: Number.isFinite(rows) && rows > 0 ? rows : 2,
+      cols: Number.isFinite(cols) && cols > 0 ? cols : 3
+    };
+  }
+
+  function getRenderDimensions() {
+    const { rows, cols } = parseCanvasFormat(localStorage.getItem(STORAGE_KEYS.canvasSize) || "2x3");
+    const orientation = localStorage.getItem(STORAGE_KEYS.editorOrientation) === "portrait" ? "portrait" : "landscape";
+
+    return orientation === "portrait"
+      ? { renderRows: cols, renderCols: rows }
+      : { renderRows: rows, renderCols: cols };
+  }
+
+  function applyThumbAspectRatio(renderCols, renderRows) {
+    const isMobileViewport = window.innerWidth <= 1000;
+    const safeCols = Number.isFinite(renderCols) && renderCols > 0 ? renderCols : 1;
+    const safeRows = Number.isFinite(renderRows) && renderRows > 0 ? renderRows : 1;
+    const previewRatio = safeCols / safeRows;
+    const isLandscapePreview = previewRatio > 1;
+    const shortSide = isMobileViewport ? 92 : 150;
+
+    let thumbWidth = shortSide;
+    let thumbHeight = shortSide;
+
+    if (previewRatio > 1) {
+      thumbWidth = shortSide * previewRatio;
+    } else if (previewRatio < 1) {
+      thumbHeight = shortSide / previewRatio;
+    }
+
+    if (!isMobileViewport && isLandscapePreview && thumbsTrack) {
+      const trackStyles = window.getComputedStyle(thumbsTrack);
+      const thumbGap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap || "0") || 0;
+      const visibleLandscapeThumbs = 4;
+      const trackWidth = thumbsTrack.clientWidth;
+      const totalGapsWidth = thumbGap * (visibleLandscapeThumbs - 1);
+      const availableWidth = trackWidth - totalGapsWidth;
+
+      if (trackWidth > 0 && availableWidth > 0) {
+        thumbWidth = availableWidth / visibleLandscapeThumbs;
+        thumbHeight = thumbWidth / previewRatio;
+      }
+    }
+
+    document.querySelectorAll(".thumb-card").forEach((card) => {
+      card.style.width = `${thumbWidth.toFixed(3)}px`;
+      card.style.height = `${thumbHeight.toFixed(3)}px`;
+      card.style.minWidth = `${thumbWidth.toFixed(3)}px`;
+      card.style.flex = `0 0 ${thumbWidth.toFixed(3)}px`;
+      card.style.aspectRatio = `${safeCols} / ${safeRows}`;
+
+      const image = card.querySelector(".thumb-card__image");
+      if (image) {
+        image.style.width = "100%";
+        image.style.height = "100%";
+        image.style.aspectRatio = `${safeCols} / ${safeRows}`;
+      }
+    });
+  }
+
+  function applyThumbsAreaVariant(renderCols, renderRows) {
+    if (!thumbsArea) return;
+
+    const isLandscape = renderCols > renderRows;
+    const isSquare = renderCols === renderRows;
+
+    thumbsArea.classList.toggle("is-landscape", isLandscape);
+    thumbsArea.classList.toggle("is-square", isSquare);
+  }
+
+  function applyPreviewWindowSize(renderCols, renderRows) {
+    if (!previewWrap) return;
+
+    const longerSide = Math.max(renderCols, renderRows) || 1;
+    const shorterSide = Math.min(renderCols, renderRows) || 1;
+    const baseLandscapeRatio = longerSide / shorterSide;
+    const isLandscapePreview = renderCols >= renderRows;
+
+    const parentWidth = previewWrap.parentElement
+      ? previewWrap.parentElement.clientWidth
+      : previewWrap.clientWidth;
+    const maxLandscapeWidth = window.innerWidth <= 1000
+      ? Math.max(1, parentWidth || 1)
+      : Math.min(500, Math.max(1, parentWidth || 500));
+
+    const baseLandscapeWidth = Math.round(maxLandscapeWidth);
+    const baseLandscapeHeight = Math.max(1, Math.round(baseLandscapeWidth / baseLandscapeRatio));
+
+    const previewWidth = isLandscapePreview ? baseLandscapeWidth : baseLandscapeHeight;
+    const previewHeight = isLandscapePreview ? baseLandscapeHeight : baseLandscapeWidth;
+
+    previewWrap.style.width = `${previewWidth}px`;
+    previewWrap.style.maxWidth = "100%";
+    previewWrap.style.height = `${previewHeight}px`;
+    previewWrap.style.aspectRatio = "auto";
+  }
+
+  function syncPaletteRowResponsiveSize() {
+    if (!paletteRow) return;
+    paletteRow.style.removeProperty("width");
+    paletteRow.style.removeProperty("min-width");
+    paletteRow.style.removeProperty("max-width");
+  }
+
+  function syncThumbTrackInsets() {
+    if (!thumbsTrack) return;
+    thumbsTrack.style.paddingLeft = "0px";
+    thumbsTrack.style.paddingRight = "0px";
+  }
+
+  function applyCanvasAspectRatio() {
+    const { renderRows, renderCols } = getRenderDimensions();
+
+    applyThumbsAreaVariant(renderCols, renderRows);
+    applyPreviewWindowSize(renderCols, renderRows);
+    syncPaletteRowResponsiveSize();
+
+    applyThumbAspectRatio(renderCols, renderRows);
+    syncThumbTrackInsets();
+  }
+
+  function syncThumbsPlacementByViewport() {
+    if (!thumbsArea || !previewWrap || !actionsBlock) return;
+
+    if (mobileHintsMedia.matches) {
+      previewWrap.insertAdjacentElement("afterend", thumbsArea);
+      return;
+    }
+
+    actionsBlock.insertAdjacentElement("beforebegin", thumbsArea);
+  }
+
+  function openImageDB() {
+    return new Promise((resolve, reject) => {
+      if (!("indexedDB" in window)) {
+        reject(new Error("IndexedDB is not supported"));
+        return;
+      }
+
+      const request = indexedDB.open(IMAGE_DB_CONFIG.name, IMAGE_DB_CONFIG.version);
+
+      request.onupgradeneeded = () => {
+        const db = request.result;
+        if (!db.objectStoreNames.contains(IMAGE_DB_CONFIG.storeName)) {
+          db.createObjectStore(IMAGE_DB_CONFIG.storeName, { keyPath: "id" });
+        }
+      };
+
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error || new Error("Не удалось открыть IndexedDB"));
+    });
+  }
+
+  async function getStoredImage(key = IMAGE_DB_CONFIG.originalImageKey) {
+    try {
+      const db = await openImageDB();
+      const transaction = db.transaction(IMAGE_DB_CONFIG.storeName, "readonly");
+      const request = transaction.objectStore(IMAGE_DB_CONFIG.storeName).get(key);
+
+      const record = await new Promise((resolve, reject) => {
+        request.onsuccess = () => resolve(request.result || null);
+        request.onerror = () => reject(request.error || new Error("Не удалось получить изображение"));
+      });
+
+      db.close();
+      return record;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  async function saveStoredImage(record) {
+    if (!record || !record.id || !(record.blob instanceof Blob)) return;
+
+    try {
+      const db = await openImageDB();
+      const transaction = db.transaction(IMAGE_DB_CONFIG.storeName, "readwrite");
+      const request = transaction.objectStore(IMAGE_DB_CONFIG.storeName).put(record);
+
+      await new Promise((resolve, reject) => {
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error || new Error("Failed to save image"));
+      });
+
+      db.close();
+    } catch (error) {
+      // no-op: keep preview rendering even if persistence fails
+    }
+  }
+
+  async function dataUrlToBlob(dataUrl) {
+    const response = await fetch(dataUrl);
+    return response.blob();
+  }
+
+  async function persistGeneratedMosaic(dataUrl) {
+    if (!dataUrl) return;
+
+    try {
+      localStorage.setItem(STORAGE_KEYS.generatedMosaicFallback, dataUrl);
+    } catch (error) {
+      // no-op
+    }
+
+    try {
+      const blob = await dataUrlToBlob(dataUrl);
+      const sourceName = localStorage.getItem(STORAGE_KEYS.uploadedImageName) || "mosaic.png";
+      await saveStoredImage({
+        id: IMAGE_DB_CONFIG.generatedMosaicKey,
+        blob,
+        name: sourceName,
+        type: "image/png",
+        savedAt: Date.now()
+      });
+    } catch (error) {
+      // no-op
+    }
+  }
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function hexToRgb(hexColor) {
+    const clean = String(hexColor || "").replace("#", "");
+    if (clean.length !== 6) return { r: 128, g: 128, b: 128 };
+
+    return {
+      r: Number.parseInt(clean.slice(0, 2), 16),
+      g: Number.parseInt(clean.slice(2, 4), 16),
+      b: Number.parseInt(clean.slice(4, 6), 16)
+    };
+  }
+
+  function rgbToCss(rgb) {
+    return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+  }
+
+  function shiftRgb(rgb, amount) {
+    return {
+      r: clamp(Math.round(rgb.r + amount), 0, 255),
+      g: clamp(Math.round(rgb.g + amount), 0, 255),
+      b: clamp(Math.round(rgb.b + amount), 0, 255)
+    };
+  }
+
+  function getActiveItemIndex(groupName, fallbackIndex = 0) {
+    const group = document.querySelector(`[data-toggle-group="${groupName}"]`);
+    if (!group) return fallbackIndex;
+
+    const items = Array.from(group.querySelectorAll("[data-toggle-item]"));
+    const activeIndex = items.findIndex((item) => item.classList.contains("is-active"));
+    return activeIndex >= 0 ? activeIndex : fallbackIndex;
+  }
+
+  function isGroupActive(groupName) {
+    const group = document.querySelector(`[data-toggle-group="${groupName}"]`);
+    if (!group) return false;
+    return Boolean(group.querySelector("[data-toggle-item].is-active"));
+  }
+
+  function getMosaicGridSize() {
+    const { renderRows, renderCols } = getRenderDimensions();
+    const rows = clamp(renderRows * 16, 32, 128);
+    const cols = clamp(renderCols * 16, 32, 128);
+    return { rows, cols };
+  }
+
+  function getToneShift() {
+    const toneIndex = getActiveItemIndex("tone", 1);
+    if (toneIndex === 0) return 20;
+    if (toneIndex === 2) return -20;
+    return 0;
+  }
+
+  function findNearestPaletteColorByLuma(luma) {
+    let nearest = LEGO_GRAY_PALETTE[0];
+    let minDelta = Infinity;
+
+    LEGO_GRAY_PALETTE.forEach((entry) => {
+      const delta = Math.abs(entry.luma - luma);
+      if (delta < minDelta) {
+        minDelta = delta;
+        nearest = entry;
+      }
+    });
+
+    return nearest.hex;
+  }
+
+  function loadImage(src) {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => resolve(image);
+      image.onerror = () => reject(new Error("Image load failed"));
+      image.src = src;
+    });
+  }
+
+  async function generateLegoMosaicDataUrl(sourceSrc) {
+    const image = await loadImage(sourceSrc);
+    const turboEnabled = isGroupActive("turbo");
+    const frameEnabled = getActiveItemIndex("frame", 1) === 1;
+    const toneShift = getToneShift();
+    const { rows, cols } = getMosaicGridSize();
+
+    const sampleCanvas = document.createElement("canvas");
+    sampleCanvas.width = cols;
+    sampleCanvas.height = rows;
+    const sampleCtx = sampleCanvas.getContext("2d", { willReadFrequently: true });
+
+    if (!sampleCtx) throw new Error("2D context unavailable");
+
+    const sourceRatio = image.width / image.height || 1;
+    const targetRatio = cols / rows || 1;
+    let drawWidth = cols;
+    let drawHeight = rows;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    if (sourceRatio > targetRatio) {
+      drawHeight = rows;
+      drawWidth = rows * sourceRatio;
+      offsetX = (cols - drawWidth) / 2;
+    } else {
+      drawWidth = cols;
+      drawHeight = cols / sourceRatio;
+      offsetY = (rows - drawHeight) / 2;
+    }
+
+    sampleCtx.imageSmoothingEnabled = true;
+    sampleCtx.imageSmoothingQuality = "high";
+    sampleCtx.drawImage(image, offsetX, offsetY, drawWidth, drawHeight);
+
+    const sampled = sampleCtx.getImageData(0, 0, cols, rows).data;
+    const studSize = clamp(Math.round(900 / Math.max(cols, rows)), 6, 18);
+    const outputCanvas = document.createElement("canvas");
+    outputCanvas.width = cols * studSize;
+    outputCanvas.height = rows * studSize;
+    const ctx = outputCanvas.getContext("2d");
+    if (!ctx) throw new Error("Output canvas unavailable");
+
+    for (let y = 0; y < rows; y += 1) {
+      for (let x = 0; x < cols; x += 1) {
+        const i = (y * cols + x) * 4;
+        const r = sampled[i];
+        const g = sampled[i + 1];
+        const b = sampled[i + 2];
+        const alpha = sampled[i + 3] / 255;
+        let luma = (0.2126 * r + 0.7152 * g + 0.0722 * b) * alpha + (1 - alpha) * 255;
+
+        if (turboEnabled) {
+          luma = ((luma - 128) * 1.24) + 128;
+        }
+        luma = clamp(luma + toneShift, 0, 255);
+
+        let hexColor = findNearestPaletteColorByLuma(luma);
+        const isFrameCell = x === 0 || y === 0 || x === cols - 1 || y === rows - 1;
+        if (frameEnabled && isFrameCell) {
+          hexColor = "#f4f4f4";
+        }
+
+        const base = hexToRgb(hexColor);
+        const darker = shiftRgb(base, -18);
+        const lighter = shiftRgb(base, 24);
+        const px = x * studSize;
+        const py = y * studSize;
+        const radius = studSize * 0.35;
+        const cx = px + (studSize / 2);
+        const cy = py + (studSize / 2);
+
+        ctx.fillStyle = rgbToCss(base);
+        ctx.fillRect(px, py, studSize, studSize);
+
+        ctx.strokeStyle = "rgba(0,0,0,0.16)";
+        ctx.lineWidth = Math.max(1, studSize * 0.06);
+        ctx.strokeRect(px + 0.5, py + 0.5, studSize - 1, studSize - 1);
+
+        const studGradient = ctx.createRadialGradient(
+          cx - radius * 0.35,
+          cy - radius * 0.45,
+          radius * 0.15,
+          cx,
+          cy,
+          radius
+        );
+        studGradient.addColorStop(0, rgbToCss(lighter));
+        studGradient.addColorStop(0.72, rgbToCss(base));
+        studGradient.addColorStop(1, rgbToCss(darker));
+
+        ctx.fillStyle = studGradient;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    return outputCanvas.toDataURL("image/png");
+  }
+
+  function setPreviewSource(src) {
+    const hasImage = Boolean(src);
+
+    imageNodes.forEach((node) => {
+      if (hasImage) {
+        node.src = src;
+      } else {
+        node.removeAttribute("src");
+      }
+    });
+
+    if (!hasImage) {
+      previewImage.classList.remove("is-visible");
+      previewEmpty.classList.add("is-visible");
+      return;
+    }
+
+    previewImage.classList.add("is-visible");
+    previewEmpty.classList.remove("is-visible");
+  }
+
+  async function setMosaicPreviewFromSource(src) {
+    const nextRenderId = ++mosaicRenderId;
+    currentSourceImage = src || "";
+
+    if (!src) {
+      setPreviewSource("");
+      return;
+    }
+
+    try {
+      const mosaicSrc = await generateLegoMosaicDataUrl(src);
+      if (nextRenderId !== mosaicRenderId) return;
+      setPreviewSource(mosaicSrc);
+      if (mosaicSrc !== lastGeneratedMosaicData) {
+        lastGeneratedMosaicData = mosaicSrc;
+        void persistGeneratedMosaic(mosaicSrc);
+      }
+    } catch (error) {
+      if (nextRenderId !== mosaicRenderId) return;
+      setPreviewSource(src);
+    }
+  }
+
+  async function refreshMosaicPreview() {
+    if (!currentSourceImage) return;
+    await setMosaicPreviewFromSource(currentSourceImage);
+  }
+
+  async function applyStoredImage() {
+    const editedRecord = await getStoredImage(IMAGE_DB_CONFIG.editedImageKey);
+
+    if (editedRecord && editedRecord.blob) {
+      if (currentObjectUrl) {
+        URL.revokeObjectURL(currentObjectUrl);
+      }
+      currentObjectUrl = URL.createObjectURL(editedRecord.blob);
+      await setMosaicPreviewFromSource(currentObjectUrl);
+      return;
+    }
+
+    const editedFallbackData = localStorage.getItem(STORAGE_KEYS.editedImageFallback);
+    if (editedFallbackData) {
+      await setMosaicPreviewFromSource(editedFallbackData);
+      return;
+    }
+
+    const storedRecord = await getStoredImage(IMAGE_DB_CONFIG.originalImageKey);
+
+    if (storedRecord && storedRecord.blob) {
+      if (currentObjectUrl) {
+        URL.revokeObjectURL(currentObjectUrl);
+      }
+      currentObjectUrl = URL.createObjectURL(storedRecord.blob);
+      await setMosaicPreviewFromSource(currentObjectUrl);
+      return;
+    }
+
+    const fallbackData = localStorage.getItem(STORAGE_KEYS.uploadedImageFallback);
+    if (fallbackData) {
+      await setMosaicPreviewFromSource(fallbackData);
+      return;
+    }
+
+    await setMosaicPreviewFromSource("");
+  }
+
+  function bindToggleGroups() {
+    document.querySelectorAll("[data-toggle-group]").forEach((group) => {
+      const groupName = group.getAttribute("data-toggle-group") || "";
+      const items = Array.from(group.querySelectorAll("[data-toggle-item]"));
+      const allowEmpty = group.getAttribute("data-toggle-allow-empty") === "true";
+
+      items.forEach((item) => {
+        item.addEventListener("click", () => {
+          const isActive = item.classList.contains("is-active");
+
+          if (allowEmpty && items.length === 1) {
+            item.classList.toggle("is-active");
+            if (["palette", "turbo", "tone", "frame"].includes(groupName)) {
+              void refreshMosaicPreview();
+            }
+            return;
+          }
+
+          if (allowEmpty && isActive) {
+            item.classList.remove("is-active");
+            if (["palette", "turbo", "tone", "frame"].includes(groupName)) {
+              void refreshMosaicPreview();
+            }
+            return;
+          }
+
+          items.forEach((button) => button.classList.remove("is-active"));
+          item.classList.add("is-active");
+
+          if (["palette", "turbo", "tone", "frame"].includes(groupName)) {
+            void refreshMosaicPreview();
+          }
+        });
+      });
+    });
+  }
+
+  function getThumbItems() {
+    if (!thumbsTrack) return [];
+    return Array.from(thumbsTrack.querySelectorAll("[data-toggle-item]"));
+  }
+
+  function setActiveThumb(nextIndex, options = {}) {
+    const items = getThumbItems();
+    if (!items.length) return;
+    const behavior = options.behavior || "smooth";
+
+    const safeIndex = Math.max(0, Math.min(nextIndex, items.length - 1));
+    items.forEach((item, index) => {
+      item.classList.toggle("is-active", index === safeIndex);
+    });
+
+    items[safeIndex].scrollIntoView({
+      behavior,
+      inline: "start",
+      block: "nearest"
+    });
+  }
+
+  function bindThumbArrows() {
+    document.querySelectorAll("[data-scroll-thumbs]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const items = getThumbItems();
+        if (!items.length) return;
+
+        const activeIndex = items.findIndex((item) => item.classList.contains("is-active"));
+        const currentIndex = activeIndex >= 0 ? activeIndex : 0;
+        const direction = button.getAttribute("data-scroll-thumbs") === "next" ? 1 : -1;
+        const nextIndex = Math.max(0, Math.min(currentIndex + direction, items.length - 1));
+
+        setActiveThumb(nextIndex);
+      });
+    });
+  }
+
+  function isHintClosed(hintName) {
+    return closedHints.has(hintName);
+  }
+
+  function hasHintBeenShown(hintName) {
+    return shownHints.has(hintName);
+  }
+
+  function isMobileHintsMode() {
+    return mobileHintsMedia.matches;
+  }
+
+  function setHintBackdropVisible(isVisible) {
+    if (!hintBackdrop) return;
+
+    hintBackdrop.classList.toggle("is-visible", isVisible);
+    hintBackdrop.setAttribute("aria-hidden", String(!isVisible));
+    document.body.classList.toggle("select-hints-mobile-open", isVisible);
+  }
+
+  function closeAllHints() {
+    document.querySelectorAll(".select-hint.is-visible").forEach((hint) => {
+      hint.classList.remove("is-visible");
+      hint.setAttribute("aria-hidden", "true");
+    });
+  }
+
+  function getVisibleHintName() {
+    const visibleHint = document.querySelector(".select-hint.is-visible");
+    return visibleHint ? visibleHint.getAttribute("data-hint") : "";
+  }
+
+  function openHint(hintName, options = {}) {
+    const { force = false } = options;
+
+    if (!hintName) return;
+    if (!force && (isHintClosed(hintName) || hasHintBeenShown(hintName))) return;
+
+    const hint = document.querySelector(`[data-hint="${hintName}"]`);
+    if (!hint) return;
+
+    if (isMobileHintsMode()) {
+      closeAllHints();
+    } else if (hint.classList.contains("is-visible")) {
+      return;
+    }
+
+    hint.classList.add("is-visible");
+    hint.setAttribute("aria-hidden", "false");
+    shownHints.add(hintName);
+
+    if (isMobileHintsMode()) {
+      setHintBackdropVisible(true);
+    }
+  }
+
+  function closeHint(hintName, options = {}) {
+    const { keepQueue = true } = options;
+    const hint = document.querySelector(`[data-hint="${hintName}"]`);
+
+    if (hint) {
+      hint.classList.remove("is-visible");
+      hint.setAttribute("aria-hidden", "true");
+    }
+
+    if (hintName) {
+      closedHints.add(hintName);
+    }
+
+    if (!isMobileHintsMode()) return;
+
+    if (
+      keepQueue &&
+      hintName === "turbo" &&
+      !isHintClosed("tone") &&
+      !hasHintBeenShown("tone")
+    ) {
+      openHint("tone", { force: true });
+      return;
+    }
+
+    if (
+      keepQueue &&
+      hintName === "tone" &&
+      !isHintClosed("frame") &&
+      !hasHintBeenShown("frame")
+    ) {
+      openHint("frame", { force: true });
+      return;
+    }
+
+    setHintBackdropVisible(Boolean(getVisibleHintName()));
+  }
+
+  function bindHints() {
+    hintTriggers.forEach((trigger) => {
+      const hintName = trigger.getAttribute("data-hint-trigger");
+
+      if (!hintName) return;
+
+      trigger.addEventListener("mouseenter", () => {
+        if (!isMobileHintsMode()) {
+          openHint(hintName);
+        }
+      });
+
+      trigger.addEventListener("focusin", () => {
+        if (!isMobileHintsMode()) {
+          openHint(hintName);
+        }
+      });
+
+      trigger.addEventListener("click", (event) => {
+        if (!isMobileHintsMode()) return;
+
+        if (!hasHintBeenShown(hintName) && !isHintClosed(hintName)) {
+          event.preventDefault();
+          event.stopPropagation();
+          openHint(hintName, { force: true });
+        }
+      });
+    });
+
+    hintCloseButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        closeHint(button.getAttribute("data-hint-close"));
+      });
+    });
+
+    if (hintBackdrop) {
+      hintBackdrop.addEventListener("click", () => {
+        const visibleHintName = getVisibleHintName();
+
+        if (visibleHintName) {
+          closeHint(visibleHintName, { keepQueue: false });
+        } else {
+          setHintBackdropVisible(false);
+        }
+      });
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", async () => {
+    syncThumbsPlacementByViewport();
+    applyCanvasAspectRatio();
+    bindToggleGroups();
+    bindThumbArrows();
+    bindHints();
+    await applyStoredImage();
+
+    setActiveThumb(0, { behavior: "auto" });
+
+    if (isMobileHintsMode()) {
+      openHint("turbo", { force: true });
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    syncThumbsPlacementByViewport();
+    applyCanvasAspectRatio();
+    const items = getThumbItems();
+    const activeIndex = items.findIndex((item) => item.classList.contains("is-active"));
+    setActiveThumb(activeIndex >= 0 ? activeIndex : 0, { behavior: "auto" });
+  });
+
+  mobileHintsMedia.addEventListener("change", (event) => {
+    syncThumbsPlacementByViewport();
+    closeAllHints();
+    setHintBackdropVisible(false);
+
+    if (event.matches && !hasHintBeenShown("turbo") && !isHintClosed("turbo")) {
+      openHint("turbo", { force: true });
+    }
+  });
+
+  window.addEventListener("beforeunload", () => {
+    if (currentObjectUrl) {
+      URL.revokeObjectURL(currentObjectUrl);
+    }
+  });
+</script>
+</body>
+</html>

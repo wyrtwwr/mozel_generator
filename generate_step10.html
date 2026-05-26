@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>step10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style_generate.css">
+  <link rel="stylesheet" href="style/style_generate_1000_step2.css">
+  <link rel="stylesheet" href="style/style_generate_1000_step10.css">
+    <link rel="stylesheet" href="style/style_generate_buttons_unified.css">
+</head>
+<body>
+<header>
+  <div class="center_header">
+    <div class="logo_box">
+      <h3 class="PC_h3">+7 900 000-00-00</h3>
+      <img src="img/logo.png" alt="">
+      <h3 class="PC_h3">info@mozle.ru</h3>
+    </div>
+</div>
+</header>
+
+<div class="menu_mobile">
+  <div class="center_header_mob">
+    <div class="logo_box_mob">
+      <img src="img/logo.png" alt="">
+</div>
+</div>
+</div>
+<div class="page">
+  <section class="email-step">
+    <h1 class="email-step__title">Вы почти у цели, чтобы не потерять инструкцию<br>введите E-mail</h1>
+    <p class="email-step__lead">Введите адрес вашей электронной почты и мы сразу отправим на нее<br>подробную инструкцию для сборки вашей мозаики.</p>
+
+    <div class="email-step__form-area">
+      <label class="email-step__input-wrap" for="instruction-email">
+        <input
+          class="email-step__input"
+          id="instruction-email"
+          type="email"
+          inputmode="email"
+          autocomplete="email"
+          required
+          placeholder="Введите E-mail"
+          aria-label="Введите E-mail"
+        >
+      </label>
+
+      <div class="email-step__actions-row email-step__actions-row--primary">
+        <button class="email-action email-action--send" id="send-email-button" type="button" aria-disabled="true">
+          <span class="email-action__main email-action__main--outline">ОТПРАВИТЬ НА ПОЧТУ</span>
+          <span class="email-action__icon email-action__icon--outline" aria-hidden="true">
+            <svg viewBox="0 0 41 23" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path d="M1.5 9.54596C0.671573 9.54596 0 10.2175 0 11.046C0 11.8744 0.671573 12.546 1.5 12.546V11.046V9.54596ZM39.6965 12.1066C40.2823 11.5208 40.2823 10.5711 39.6965 9.9853L30.1505 0.439358C29.5648 -0.146429 28.615 -0.146429 28.0292 0.439358C27.4434 1.02514 27.4434 1.97489 28.0292 2.56068L36.5145 11.046L28.0292 19.5312C27.4434 20.117 27.4434 21.0668 28.0292 21.6526C28.615 22.2383 29.5648 22.2383 30.1505 21.6526L39.6965 12.1066ZM1.5 11.046V12.546H38.6358V11.046V9.54596H1.5V11.046Z" fill="currentColor"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <button class="email-step__skip" id="skip-email-button" type="button">ПРОПУСТИТЬ ОТПРАВКУ</button>
+
+      <div class="email-step__actions-row email-step__actions-row--secondary">
+        <button class="email-action email-action--back" id="step10-back" type="button">
+          <span class="email-action__icon email-action__icon--dark" aria-hidden="true">
+            <svg viewBox="0 0 41 23" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path d="M38.6357 9.54596C39.4642 9.54596 40.1357 10.2175 40.1357 11.046C40.1357 11.8744 39.4642 12.546 38.6357 12.546V11.046V9.54596ZM0.439262 12.1066C-0.146523 11.5208 -0.146523 10.5711 0.439262 9.9853L9.9852 0.439358C10.571 -0.146429 11.5207 -0.146429 12.1065 0.439358C12.6923 1.02514 12.6923 1.97489 12.1065 2.56068L3.62124 11.046L12.1065 19.5312C12.6923 20.117 12.6923 21.0668 12.1065 21.6526C11.5207 22.2383 10.571 22.2383 9.9852 21.6526L0.439262 12.1066ZM38.6357 11.046V12.546H1.49992V11.046V9.54596H38.6357V11.046Z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="email-action__main email-action__main--dark">НАЗАД</span>
+        </button>
+
+        <button class="email-action email-action--continue" id="continue-button" type="button" aria-disabled="true">
+          <span class="email-action__main email-action__main--outline">ПЕРЕЙТИ К СБОРКЕ</span>
+          <span class="email-action__icon email-action__icon--outline" aria-hidden="true">
+            <svg viewBox="0 0 41 23" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path d="M1.5 9.54596C0.671573 9.54596 0 10.2175 0 11.046C0 11.8744 0.671573 12.546 1.5 12.546V11.046V9.54596ZM39.6965 12.1066C40.2823 11.5208 40.2823 10.5711 39.6965 9.9853L30.1505 0.439358C29.5648 -0.146429 28.615 -0.146429 28.0292 0.439358C27.4434 1.02514 27.4434 1.97489 28.0292 2.56068L36.5145 11.046L28.0292 19.5312C27.4434 20.117 27.4434 21.0668 28.0292 21.6526C28.615 22.2383 29.5648 22.2383 30.1505 21.6526L39.6965 12.1066ZM1.5 11.046V12.546H38.6358V11.046V9.54596H1.5V11.046Z" fill="currentColor"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <div class="email-skip-hint" id="email-skip-hint" aria-hidden="true">
+        <svg class="email-skip-hint__arrow" width="91" height="79" viewBox="0 0 91 79" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0.701563 61.7786C-0.138366 62.4959 -0.237741 63.7583 0.479611 64.5983L12.1695 78.2857C12.8868 79.1257 14.1493 79.225 14.9892 78.5077C15.8291 77.7903 15.9285 76.5279 15.2111 75.688L4.82014 63.5213L16.9868 53.1303C17.8267 52.413 17.9261 51.1506 17.2087 50.3106C16.4914 49.4707 15.229 49.3713 14.389 50.0887L0.701563 61.7786ZM90.8946 11.3911C91.2469 10.3442 90.6838 9.20992 89.6369 8.85763C88.5901 8.50533 87.4558 9.06841 87.1035 10.1153L88.999 10.7532L90.8946 11.3911ZM2.00044 63.2994L1.84349 65.2932C28.0941 67.3596 46.5611 65.6606 60.4192 57.3583C74.3323 49.0231 83.1894 34.2877 90.8946 11.3911L88.999 10.7532L87.1035 10.1153C79.4897 32.7404 71.0292 46.3391 58.3635 53.927C45.6429 61.5478 28.2701 63.361 2.15739 61.3055L2.00044 63.2994Z" fill="#BF1F32"/>
+          <path d="M2.15739 61.3055C2.05276 62.6348 1.94812 63.964 1.84349 65.2932C3.78485 65.5834 5.62253 65.8424 7.54655 66.0805C24.4485 68.0108 42.9722 68.991 59.6545 60.1643C76.5096 51.097 84.5301 33.1959 89.3534 16.9598C89.9152 15.0691 90.3963 13.3003 90.8946 11.3911C91.0224 10.8943 90.9747 10.3606 90.738 9.89924C90.5015 9.43797 90.0991 9.0881 89.6143 8.92496C89.1295 8.76182 88.5974 8.79718 88.1301 9.02163C87.6627 9.24601 87.302 9.64231 87.1035 10.1153C87.1035 10.1153 87.1035 10.1153 87.1035 10.1153C86.3559 11.9054 85.6411 13.5527 84.8644 15.3124C78.0545 30.6242 69.6699 45.6872 55.7732 53.0384C41.9455 60.4959 24.6248 61.0892 7.82977 61.3071C5.92529 61.3175 4.09653 61.3204 2.15739 61.3055Z" fill="#BF1F32"/>
+        </svg>
+        <article class="email-skip-hint__card">
+          <h2 class="email-skip-hint__head">ВНИМАНИЕ!!!</h2>
+          <div class="email-skip-hint__body">
+            <p class="email-skip-hint__text">
+              Чтобы надежно сохранить инструкцию в почтовом ящике, пожалуйста введите E-mail.
+              Но это совсем не обязательно! Можно пропустить отправку и сразу приступить к сборке картины.
+            </p>
+            <button class="email-skip-hint__close" id="email-skip-hint-close" type="button">ПОНЯТНО</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="email-skip-hint-backdrop" id="email-skip-hint-backdrop" aria-hidden="true"></div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <a href="/" class="brand-link">
+        <img class="footer_logo" src="img/logo.png" alt="">
+      </a>
+    </div>
+
+    <div class="footer-nav">
+      <ul class="footer-menu">
+        <li><a href="#">Каталог</a></li>
+        <li><a href="#">Получить инструкцию</a></li>
+        <li><a href="#">Загрузить фото</a></li>
+        <li><a href="#">Отзывы покупателей</a></li>
+        <li><a href="#">Дилерам и партнёрам</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-legal">
+      <ul class="legal-links">
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Политика использования файлов cookies</a></li>
+        <li><a href="#">Обработка персональных данных</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contacts">
+      <a href="tel:+79000000000" class="contact-phone">+7 900 000-00-00</a>
+      <a href="mailto:info@mozle.ru" class="contact-email">info@mozle.ru</a>
+      <address class="contact-address">
+        101000, г. Москва, ул. Тверская, д. 15/2, корп. 1, офис 177
+      </address>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="copyright">2025 © MozLe</p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("menu2");
+  const emailInput = document.getElementById("instruction-email");
+  const backButton = document.getElementById("step10-back");
+  const sendEmailButton = document.getElementById("send-email-button");
+  const continueButton = document.getElementById("continue-button");
+  const skipEmailButton = document.getElementById("skip-email-button");
+  const skipHint = document.getElementById("email-skip-hint");
+  const skipHintCloseButton = document.getElementById("email-skip-hint-close");
+  const skipHintBackdrop = document.getElementById("email-skip-hint-backdrop");
+
+  const EMAIL_STORAGE_KEY = "mozle_instruction_email";
+  let isSkipSendingApproved = false;
+
+  if (burger && menu) {
+    burger.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+  }
+
+  function isValidEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(String(value || "").trim());
+  }
+
+  function setEmailFieldError(message = "") {
+    if (!emailInput) return;
+
+    const hasError = Boolean(message);
+    emailInput.classList.toggle("is-invalid", hasError);
+    emailInput.setAttribute("aria-invalid", String(hasError));
+    emailInput.setCustomValidity(message);
+  }
+
+  function showEmailValidationError() {
+    if (!emailInput) return;
+
+    const value = String(emailInput.value || "").trim();
+    let errorMessage = "";
+
+    if (!value) {
+      errorMessage = "Введите E-mail";
+    } else if (!isValidEmail(value)) {
+      errorMessage = "Введите корректный E-mail";
+    }
+
+    if (!errorMessage) {
+      setEmailFieldError("");
+      return;
+    }
+
+    setEmailFieldError(errorMessage);
+    emailInput.reportValidity();
+    emailInput.focus();
+  }
+
+  function setSkipHintVisible(isVisible) {
+    if (!skipHint || !skipHintBackdrop) return;
+
+    skipHint.classList.toggle("is-visible", isVisible);
+    skipHint.setAttribute("aria-hidden", String(!isVisible));
+    skipHintBackdrop.classList.toggle("is-visible", isVisible);
+    skipHintBackdrop.setAttribute("aria-hidden", String(!isVisible));
+    document.body.classList.toggle("email-skip-hint-open", isVisible);
+  }
+
+  function openSkipHint() {
+    setSkipHintVisible(true);
+  }
+
+  function approveSkipSending() {
+    isSkipSendingApproved = true;
+    setSkipHintVisible(false);
+    updateEmailState();
+  }
+
+  function updateEmailState() {
+    if (!emailInput || !continueButton || !sendEmailButton) return;
+
+    const isValid = isValidEmail(emailInput.value);
+    const canContinue = isValid || isSkipSendingApproved;
+
+    setEmailFieldError("");
+    continueButton.classList.toggle("is-active", isSkipSendingApproved);
+    continueButton.setAttribute("aria-disabled", String(!canContinue));
+    sendEmailButton.setAttribute("aria-disabled", String(!isValid));
+
+    if (isValid) {
+      localStorage.setItem(EMAIL_STORAGE_KEY, emailInput.value.trim());
+    }
+  }
+
+  if (backButton) {
+    backButton.addEventListener("click", () => {
+      window.location.href = "generate_step9.html";
+    });
+  }
+
+  if (sendEmailButton) {
+    sendEmailButton.addEventListener("click", () => {
+      if (!isValidEmail(emailInput.value)) {
+        showEmailValidationError();
+        return;
+      }
+
+      localStorage.setItem(EMAIL_STORAGE_KEY, emailInput.value.trim());
+      alert("Отправка инструкции на почту подключается на следующем этапе.");
+    });
+  }
+
+  if (continueButton) {
+    continueButton.addEventListener("click", () => {
+      const isValid = isValidEmail(emailInput.value);
+
+      if (!isValid && !isSkipSendingApproved) {
+        openSkipHint();
+        return;
+      }
+
+      if (isValid) {
+        localStorage.setItem(EMAIL_STORAGE_KEY, emailInput.value.trim());
+      }
+      window.location.href = "instructions_step1.html";
+    });
+  }
+
+  if (skipEmailButton) {
+    skipEmailButton.addEventListener("click", () => {
+      setSkipHintVisible(false);
+      if (continueButton) {
+        continueButton.focus();
+      }
+    });
+  }
+
+  if (skipHintCloseButton) {
+    skipHintCloseButton.addEventListener("click", approveSkipSending);
+  }
+
+  if (skipHintBackdrop) {
+    skipHintBackdrop.addEventListener("click", () => {
+      setSkipHintVisible(false);
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setSkipHintVisible(false);
+    }
+  });
+
+  if (emailInput) {
+    emailInput.addEventListener("input", updateEmailState);
+    emailInput.addEventListener("change", updateEmailState);
+
+    const savedEmail = localStorage.getItem(EMAIL_STORAGE_KEY);
+    if (savedEmail) {
+      emailInput.value = savedEmail;
+    }
+  }
+
+  updateEmailState();
+</script>
+</body>
+</html>
+
+
+
+

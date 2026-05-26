@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step6</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style_generate.css">
+    <link rel="stylesheet" href="style/style_generate_1000_step2.css">
+    <link rel="stylesheet" href="style/style_generate_1000_step6.css">
+    <link rel="stylesheet" href="style/style_generate_buttons_unified.css">
+</head>
+<body>
+<header>
+<div class="center_header">
+<div class="logo_box">
+     <h3 class="PC_h3">+7 900 000-00-00</h3>
+    <img src="img/logo.png" alt="">
+    <h3 class="PC_h3">info@mozle.ru</h3>
+</div>
+</div>
+    </header>
+
+ <div class="menu_mobile">
+    <div class="center_header_mob">
+<div class="logo_box_mob">
+    <img src="img/logo.png" alt="">
+</div>
+</div>
+ </div>
+
+<div class="page">
+  <section class="editor-step">
+    <h2 class="editor-step__title">Выделите желаемую зону с максимально<br>крупными объектами или лицами</h2>
+
+    <div class="editor-step__layout">
+      <div class="editor-workspace">
+        <div class="editor-slider editor-slider--top">
+          <div class="editor-slider__icon" aria-hidden="true">
+     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M7.05556 11.2222H15.3889M18.1667 18.1667L26.5 26.5M11.2222 7.14311V15.4764M11.2222 20.9444C5.85279 20.9444 1.5 16.5917 1.5 11.2222C1.5 5.85279 5.85279 1.5 11.2222 1.5C16.5917 1.5 20.9444 5.85279 20.9444 11.2222C20.9444 16.5917 16.5917 20.9444 11.2222 20.9444Z" stroke="#0F0F0F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+          </div>
+          <input class="editor-slider__input" id="zoom-range" type="range" min="100" max="250" step="1" value="118">
+        </div>
+
+        <div class="editor-stage" id="editor-stage">
+          <div class="editor-stage__background" id="editor-stage-bg" aria-hidden="true"></div>
+          <div class="editor-stage__viewport" id="editor-viewport">
+            <img class="editor-stage__image" id="editor-image" alt="Выбранное изображение">
+            <div class="editor-stage__grid" id="editor-grid" aria-hidden="true"></div>
+            <div class="editor-stage__empty" id="editor-empty">Изображение не загружено</div>
+          </div>
+        </div>
+
+        <div class="editor-slider editor-slider--bottom">
+          <div class="editor-slider__icon" aria-hidden="true">
+<svg width="39" height="31" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.5218 19.6438L33.0865 15.642L37.0883 23.2068M13.0671 10.7416L5.50232 14.7434L1.50053 7.17866M28.1185 4.72231C26.1595 3.07147 23.7767 2.00329 21.2409 1.63919C18.7051 1.27509 16.1181 1.62916 13.7738 2.66211C11.4294 3.69506 9.42139 5.36516 7.97881 7.4822C6.53624 9.59925 5.71698 12.0788 5.61323 14.6385M10.4701 25.6642C12.4291 27.315 14.8119 28.3832 17.3477 28.7473C19.8835 29.1114 22.4722 28.7551 24.8165 27.7222C27.1608 26.6892 29.1671 25.0202 30.6096 22.9032C32.0522 20.7861 32.8705 18.3074 32.9743 15.7477" stroke="#0F0F0F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+          </div>
+          <input class="editor-slider__input" id="rotate-range" type="range" min="-90" max="90" step="1" value="0">
+          <span class="editor-slider__center-mark" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <aside class="editor-side">
+        <div class="editor-side__tool-group editor-side__tool-group--orientation" data-hint-group="orientation">
+          <button class="editor-tool editor-tool--outline" id="orientation-toggle" type="button" data-hint-trigger="orientation">
+            <span class="editor-tool__icon editor-tool__icon--orientation" aria-hidden="true">
+<svg width="30" height="24" viewBox="0 0 140 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M80.0385 99.9995L80.0385 10.4999C80.0385 7.73841 77.7999 5.49984 75.0384 5.49986L10.4999 5.50028C7.73849 5.5003 5.49993 7.73887 5.49993 10.5003L5.49994 98.5001C5.49994 101.262 7.73854 103.5 10.5 103.5L122.534 103.499C125.295 103.499 127.534 101.261 127.534 98.4994L127.534 33.9995C127.534 31.2381 125.295 28.9995 122.534 28.9995L80.0385 28.9998" stroke="currentColor" stroke-width="15" stroke-linecap="round"/>
+</svg>
+
+            </span>
+            <span class="editor-tool__text">КНИЖНАЯ / АЛЬБОМНАЯ</span>
+          </button>
+
+          <div class="editor-hint editor-hint--top" id="orientation-hint" data-hint="orientation" aria-hidden="true">
+            <svg class="editor-hint__arrow editor-hint__arrow--top" width="106" height="112" viewBox="0 0 106 112" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M105.338 95.916C106.065 96.7476 105.98 98.0111 105.148 98.7381L91.5972 110.586C90.7656 111.313 89.5022 111.228 88.7751 110.396C88.0481 109.565 88.1329 108.301 88.9644 107.574L101.01 97.0431L90.4788 84.9976C89.7518 84.166 89.8365 82.9025 90.6681 82.1755C91.4996 81.4485 92.7631 81.5332 93.4902 82.3648L105.338 95.916ZM0.0265473 2.32527C-0.152826 1.23537 0.585308 0.206406 1.67522 0.0270386C2.76512 -0.152336 3.79408 0.5858 3.97345 1.6757L2 2.00049L0.0265473 2.32527ZM103.832 97.2324L103.698 99.2279C69.8132 96.9551 46.6539 90.6937 30.5616 75.7547C14.4826 60.8282 5.82852 37.5793 0.0265473 2.32527L2 2.00049L3.97345 1.6757C9.74529 36.7465 18.2286 58.8478 33.283 72.8232C48.3239 86.7861 70.2937 92.9783 103.966 95.2369L103.832 97.2324Z" fill="#BF1F32"/>
+              <path d="M103.966 95.2369C103.877 96.5672 103.787 97.8976 103.698 99.2279C100.995 99.1836 98.4736 99.1179 95.7844 98.9972C72.5262 97.833 46.6313 94.1501 28.1275 76.2814C9.92401 58.353 4.41553 33.2469 1.00658 10.1743C0.637892 7.52961 0.329492 5.00816 0.0265473 2.32527C-0.030396 1.81101 0.100332 1.28731 0.408551 0.866318C0.716596 0.445358 1.17395 0.162079 1.68364 0.0781937C2.19333 -0.00569153 2.71734 0.116081 3.14404 0.416122C3.57092 0.716133 3.86259 1.17032 3.97345 1.6757C3.97345 1.6757 3.97345 1.6757 3.97345 1.6757C4.54266 4.28744 5.10257 6.73391 5.7068 9.29514C11.1732 31.748 17.873 54.9917 33.7737 70.4535C49.6694 85.9982 73.3497 90.9469 96.2188 94.2352C98.8425 94.5979 101.311 94.9209 103.966 95.2369Z" fill="#BF1F32"/>
+            </svg>
+
+            <div class="editor-hint__card">
+              <div class="editor-hint__head">ОРИЕНТАЦИЯ ПОЛОТНА</div>
+              <div class="editor-hint__body">
+                <p class="editor-hint__text">Измените ориентацию полотна для будущей мозаики</p>
+                <button class="editor-hint__close" type="button" data-hint-close="orientation">ПОНЯТНО</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="editor-side__tool-group editor-side__tool-group--upload" data-hint-group="replace">
+          <label class="editor-tool editor-tool--red" for="step6-upload-input" data-hint-trigger="replace">
+            <span class="editor-tool__icon" aria-hidden="true">
+             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4.16667 0C1.86528 0 0 1.86542 0 4.16667V6.94444V19.4444C0 22.5125 2.4875 25 5.55556 25H19.4444C22.5125 25 25 22.5125 25 19.4444V6.94444C25 6.17736 24.3778 5.55556 23.6111 5.55556H16.6667C15.6181 5.55556 15.2806 5.21542 14.4528 3.55903C13.1986 1.04875 12.1458 0 9.72222 0H4.16667ZM4.16667 2.77778H9.72222C10.7708 2.77778 11.1083 3.11792 11.9361 4.77431C12.1167 5.13694 12.1778 5.23986 12.3555 5.54264L6.90138 5.55556C6.13333 5.55556 5.51249 6.17736 5.51249 6.94444C5.51249 7.71153 6.13333 8.33333 6.90138 8.33333H16.6667H22.2222V19.4444C22.2222 20.9792 20.9792 22.2222 19.4444 22.2222H5.55556C4.02083 22.2222 2.77778 20.9792 2.77778 19.4444V6.94444V4.16667C2.77778 3.39958 3.4 2.77778 4.16667 2.77778Z" fill="currentColor" />
+</svg>
+            </span>
+            <span class="editor-tool__text">ЗАГРУЗИТЬ НОВОЕ ФОТО</span>
+          </label>
+
+          <div class="editor-hint editor-hint--bottom" id="replace-hint" data-hint="replace" aria-hidden="true">
+            <svg class="editor-hint__arrow editor-hint__arrow--bottom" width="106" height="112" viewBox="0 0 106 112" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M105.338 95.916C106.065 96.7476 105.98 98.0111 105.148 98.7381L91.5972 110.586C90.7656 111.313 89.5022 111.228 88.7751 110.396C88.0481 109.565 88.1329 108.301 88.9644 107.574L101.01 97.0431L90.4788 84.9976C89.7518 84.166 89.8365 82.9025 90.6681 82.1755C91.4996 81.4485 92.7631 81.5332 93.4902 82.3648L105.338 95.916ZM0.0265473 2.32527C-0.152826 1.23537 0.585308 0.206406 1.67522 0.0270386C2.76512 -0.152336 3.79408 0.5858 3.97345 1.6757L2 2.00049L0.0265473 2.32527ZM103.832 97.2324L103.698 99.2279C69.8132 96.9551 46.6539 90.6937 30.5616 75.7547C14.4826 60.8282 5.82852 37.5793 0.0265473 2.32527L2 2.00049L3.97345 1.6757C9.74529 36.7465 18.2286 58.8478 33.283 72.8232C48.3239 86.7861 70.2937 92.9783 103.966 95.2369L103.832 97.2324Z" fill="#BF1F32"/>
+              <path d="M103.966 95.2369C103.877 96.5672 103.787 97.8976 103.698 99.2279C100.995 99.1836 98.4736 99.1179 95.7844 98.9972C72.5262 97.833 46.6313 94.1501 28.1275 76.2814C9.92401 58.353 4.41553 33.2469 1.00658 10.1743C0.637892 7.52961 0.329492 5.00816 0.0265473 2.32527C-0.030396 1.81101 0.100332 1.28731 0.408551 0.866318C0.716596 0.445358 1.17395 0.162079 1.68364 0.0781937C2.19333 -0.00569153 2.71734 0.116081 3.14404 0.416122C3.57092 0.716133 3.86259 1.17032 3.97345 1.6757C3.97345 1.6757 3.97345 1.6757 3.97345 1.6757C4.54266 4.28744 5.10257 6.73391 5.7068 9.29514C11.1732 31.748 17.873 54.9917 33.7737 70.4535C49.6694 85.9982 73.3497 90.9469 96.2188 94.2352C98.8425 94.5979 101.311 94.9209 103.966 95.2369Z" fill="#BF1F32"/>
+            </svg>
+
+            <div class="editor-hint__card">
+              <div class="editor-hint__head">ЗАМЕНА ФОТОГРАФИИ</div>
+              <div class="editor-hint__body">
+                <p class="editor-hint__text">Замените фотографию если что-то пошло не так</p>
+                <button class="editor-hint__close" type="button" data-hint-close="replace">ПОНЯТНО</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <input type="file" id="step6-upload-input" class="editor-side__input" accept="image/*">
+
+        <div class="editor-side__meta">
+          <p class="editor-side__info"><span>Формат:</span> <strong id="format-value">2x3</strong></p>
+          <p class="editor-side__info"><span>Ориентация:</span> <strong id="orientation-value">Альбомная</strong></p>
+          <p class="editor-side__hint" id="image-status">Используется фото, загруженное на шаге 4</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="editor-hint-backdrop" id="editor-hint-backdrop" aria-hidden="true"></div>
+
+    <div class="code-step__actions editor-step__actions">
+      <a href="generate_step5.html">
+        <div class="step-btn step-btn--back">
+          <button class="step-btn__icon step-btn__icon--dark" type="button" aria-label="Назад">
+            <svg width="41" height="23" viewBox="0 0 41 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M38.6357 9.54596C39.4642 9.54596 40.1357 10.2175 40.1357 11.046C40.1357 11.8744 39.4642 12.546 38.6357 12.546V11.046V9.54596ZM0.439262 12.1066C-0.146523 11.5208 -0.146523 10.5711 0.439262 9.9853L9.9852 0.439358C10.571 -0.146429 11.5207 -0.146429 12.1065 0.439358C12.6923 1.02514 12.6923 1.97489 12.1065 2.56068L3.62124 11.046L12.1065 19.5312C12.6923 20.117 12.6923 21.0668 12.1065 21.6526C11.5207 22.2383 10.571 22.2383 9.9852 21.6526L0.439262 12.1066ZM38.6357 11.046V12.546H1.49992V11.046V9.54596H38.6357V11.046Z" fill="white"/>
+            </svg>
+          </button>
+
+          <button class="step-btn__main step-btn__main--dark" type="button">
+            НАЗАД
+          </button>
+        </div>
+      </a>
+
+      <a href="generate_step7.html" id="step6-next-link">
+        <div class="step-btn step-btn--next">
+          <button class="step-btn__main step-btn__main--red" type="button">
+            ДАЛЕЕ
+          </button>
+
+          <button class="step-btn__icon step-btn__icon--red" type="button" aria-label="Далее">
+            <svg width="41" height="23" viewBox="0 0 41 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 9.54596C0.671573 9.54596 0 10.2175 0 11.046C0 11.8744 0.671573 12.546 1.5 12.546V11.046V9.54596ZM39.6965 12.1066C40.2823 11.5208 40.2823 10.5711 39.6965 9.9853L30.1505 0.439358C29.5648 -0.146429 28.615 -0.146429 28.0292 0.439358C27.4434 1.02514 27.4434 1.97489 28.0292 2.56068L36.5145 11.046L28.0292 19.5312C27.4434 20.117 27.4434 21.0668 28.0292 21.6526C28.615 22.2383 29.5648 22.2383 30.1505 21.6526L39.6965 12.1066ZM1.5 11.046V12.546H38.6358V11.046V9.54596H1.5V11.046Z" fill="white"/>
+            </svg>
+          </button>
+        </div>
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <a href="/" class="brand-link">
+                <img class="footer_logo" src="img/logo.png" alt="">
+            </a>
+        </div>
+
+        <div class="footer-nav">
+            <ul class="footer-menu">
+                 <li><a href="#">Каталог</a></li>
+                <li><a href="#">Получить инструкцию</a></li>
+                <li><a href="#">Загрузить фото</a></li>
+                <li><a href="#">Отзывы покупателей</a></li>
+                <li><a href="#">Дилерам и партнёрам</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-legal">
+            <ul class="legal-links">
+                <li><a href="#">Политика конфиденциальности</a></li>
+                <li><a href="#">Политика использования файлов cookies</a></li>
+                <li><a href="#">Обработка персональных данных</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contacts">
+            <a href="tel:+79000000000" class="contact-phone">+7 900 000-00-00</a>
+            <a href="mailto:info@mozle.ru" class="contact-email">info@mozle.ru</a>
+            <address class="contact-address">
+                101000, г. Москва, ул. Тверская, д. 15/2, корп. 1, офис 177
+            </address>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p class="copyright">2025 © MozLe</p>
+    </div>
+</footer>
+
+<script>
+  const STORAGE_KEYS = {
+    canvasSize: "mozle_canvas_size",
+    uploadedImageName: "mozle_uploaded_image_name",
+    uploadedImageFallback: "mozle_uploaded_image_data",
+    editedImageFallback: "mozle_edited_image_data",
+    editorOrientation: "mozle_editor_orientation",
+    editorZoom: "mozle_editor_zoom",
+    editorRotate: "mozle_editor_rotate"
+  };
+
+  const IMAGE_DB_CONFIG = {
+    name: "mozle_step_storage",
+    version: 1,
+    storeName: "files",
+    originalImageKey: "step4_original_image",
+    editedImageKey: "step6_edited_image"
+  };
+
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("menu2");
+
+  if (burger && menu) {
+    burger.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+  }
+
+  const editorStage = document.getElementById("editor-stage");
+  const editorViewport = document.getElementById("editor-viewport");
+  const editorImage = document.getElementById("editor-image");
+  const editorGrid = document.getElementById("editor-grid");
+  const editorStageBg = document.getElementById("editor-stage-bg");
+  const editorEmpty = document.getElementById("editor-empty");
+  const zoomRange = document.getElementById("zoom-range");
+  const rotateRange = document.getElementById("rotate-range");
+  const uploadInput = document.getElementById("step6-upload-input");
+  const orientationToggle = document.getElementById("orientation-toggle");
+  const formatValue = document.getElementById("format-value");
+  const orientationValue = document.getElementById("orientation-value");
+  const imageStatus = document.getElementById("image-status");
+  const nextLink = document.getElementById("step6-next-link");
+  const hintTriggers = document.querySelectorAll("[data-hint-trigger]");
+  const hintCloseButtons = document.querySelectorAll("[data-hint-close]");
+  const hintBackdrop = document.getElementById("editor-hint-backdrop");
+  const mobileHintsMedia = window.matchMedia("(max-width: 1000px)");
+
+  const closedHints = new Set();
+  const shownHints = new Set();
+
+  let currentObjectUrl = "";
+  let editedSnapshotTimer = 0;
+  let editedSnapshotRequestId = 0;
+  let currentFormat = localStorage.getItem(STORAGE_KEYS.canvasSize) || "2x3";
+  let currentOrientation = localStorage.getItem(STORAGE_KEYS.editorOrientation) || "landscape";
+  let panX = 0;
+  let panY = 0;
+  let isImageDragging = false;
+  let dragPointerId = null;
+  let dragStartX = 0;
+  let dragStartY = 0;
+  let dragStartPanX = 0;
+  let dragStartPanY = 0;
+  const activeTouchPointers = new Map();
+  let isPinchZooming = false;
+  let pinchStartDistance = 0;
+  let pinchStartZoomValue = 0;
+  const ROTATE_SNAP_DEGREES = 2;
+
+  function openImageDB() {
+    return new Promise((resolve, reject) => {
+      if (!("indexedDB" in window)) {
+        reject(new Error("IndexedDB is not supported"));
+        return;
+      }
+
+      const request = indexedDB.open(IMAGE_DB_CONFIG.name, IMAGE_DB_CONFIG.version);
+
+      request.onupgradeneeded = () => {
+        const db = request.result;
+
+        if (!db.objectStoreNames.contains(IMAGE_DB_CONFIG.storeName)) {
+          db.createObjectStore(IMAGE_DB_CONFIG.storeName, { keyPath: "id" });
+        }
+      };
+
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error || new Error("Не удалось открыть IndexedDB"));
+    });
+  }
+
+  async function saveImageToStorage(file, key = IMAGE_DB_CONFIG.originalImageKey, meta = {}) {
+    const db = await openImageDB();
+
+    await new Promise((resolve, reject) => {
+      const transaction = db.transaction(IMAGE_DB_CONFIG.storeName, "readwrite");
+      const store = transaction.objectStore(IMAGE_DB_CONFIG.storeName);
+
+      store.put({
+        id: key,
+        blob: file,
+        name: meta.name || file.name || "image.jpg",
+        type: meta.type || file.type || "image/jpeg",
+        savedAt: Date.now()
+      });
+
+      transaction.oncomplete = () => resolve();
+      transaction.onerror = () => reject(transaction.error || new Error("Не удалось сохранить файл"));
+      transaction.onabort = () => reject(transaction.error || new Error("Сохранение файла было прервано"));
+    });
+
+    db.close();
+  }
+
+  async function getStoredImage(key = IMAGE_DB_CONFIG.originalImageKey) {
+    try {
+      const db = await openImageDB();
+      const transaction = db.transaction(IMAGE_DB_CONFIG.storeName, "readonly");
+      const request = transaction.objectStore(IMAGE_DB_CONFIG.storeName).get(key);
+
+      const record = await new Promise((resolve, reject) => {
+        request.onsuccess = () => resolve(request.result || null);
+        request.onerror = () => reject(request.error || new Error("Не удалось получить изображение"));
+      });
+
+      db.close();
+      return record;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function saveImageFallback(file) {
+    return new Promise((resolve, reject) => {
+      if (file.size > 2.5 * 1024 * 1024) {
+        reject(new Error("Файл слишком большой для fallback-хранилища"));
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        try {
+          localStorage.setItem(STORAGE_KEYS.uploadedImageFallback, reader.result);
+          resolve(reader.result);
+        } catch (error) {
+          reject(error);
+        }
+      };
+
+      reader.onerror = () => reject(reader.error || new Error("Не удалось прочитать файл"));
+      reader.readAsDataURL(file);
+    });
+  }
+
+
+  function saveEditedImageFallback(dataUrl) {
+    try {
+      localStorage.setItem(STORAGE_KEYS.editedImageFallback, dataUrl);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function blobToDataURL(blob) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result || "");
+      reader.onerror = () => reject(reader.error || new Error("Не удалось прочитать blob"));
+      reader.readAsDataURL(blob);
+    });
+  }
+
+  function waitForImageReady(imageNode) {
+    return new Promise((resolve) => {
+      if (imageNode.complete && imageNode.naturalWidth > 0) {
+        resolve();
+        return;
+      }
+
+      const onLoad = () => {
+        imageNode.removeEventListener("load", onLoad);
+        imageNode.removeEventListener("error", onLoad);
+        resolve();
+      };
+
+      imageNode.addEventListener("load", onLoad, { once: true });
+      imageNode.addEventListener("error", onLoad, { once: true });
+    });
+  }
+
+  function buildEditedSnapshotBlob() {
+    return new Promise(async (resolve) => {
+      await waitForImageReady(editorImage);
+
+      const viewportWidth = Math.round(editorViewport.clientWidth || 0);
+      const viewportHeight = Math.round(editorViewport.clientHeight || 0);
+      const imageWidth = editorImage.naturalWidth || 0;
+      const imageHeight = editorImage.naturalHeight || 0;
+
+      if (!viewportWidth || !viewportHeight || !imageWidth || !imageHeight || !editorImage.src) {
+        resolve(null);
+        return;
+      }
+
+      const zoom = Number(zoomRange.value) / 100;
+      const rotate = Number(rotateRange.value) * Math.PI / 180;
+      const baseScale = Math.max(viewportWidth / imageWidth, viewportHeight / imageHeight);
+      const drawWidth = imageWidth * baseScale;
+      const drawHeight = imageHeight * baseScale;
+
+      const canvas = document.createElement("canvas");
+      canvas.width = viewportWidth;
+      canvas.height = viewportHeight;
+
+      const context = canvas.getContext("2d");
+      if (!context) {
+        resolve(null);
+        return;
+      }
+
+      context.clearRect(0, 0, viewportWidth, viewportHeight);
+      context.translate(viewportWidth / 2, viewportHeight / 2);
+      context.translate(panX, panY);
+      context.scale(zoom, zoom);
+      context.rotate(rotate);
+      context.drawImage(editorImage, -drawWidth / 2, -drawHeight / 2, drawWidth, drawHeight);
+
+      canvas.toBlob((blob) => resolve(blob), "image/jpeg", 0.92);
+    });
+  }
+
+  async function persistEditedSnapshotNow() {
+    if (editedSnapshotTimer) {
+      window.clearTimeout(editedSnapshotTimer);
+      editedSnapshotTimer = 0;
+    }
+
+    const requestId = ++editedSnapshotRequestId;
+    const blob = await buildEditedSnapshotBlob();
+
+    if (!blob || requestId !== editedSnapshotRequestId) {
+      return;
+    }
+
+    try {
+      await saveImageToStorage(blob, IMAGE_DB_CONFIG.editedImageKey, {
+        name: "edited-photo.jpg",
+        type: "image/jpeg"
+      });
+    } catch (error) {
+      try {
+        const dataUrl = await blobToDataURL(blob);
+        saveEditedImageFallback(dataUrl);
+      } catch (fallbackError) {
+        // ignore fallback save errors
+      }
+    }
+  }
+
+  function scheduleEditedSnapshotSave() {
+    if (editedSnapshotTimer) {
+      window.clearTimeout(editedSnapshotTimer);
+    }
+
+    editedSnapshotTimer = window.setTimeout(() => {
+      persistEditedSnapshotNow();
+    }, 120);
+  }
+
+  function setNextAvailability(isEnabled) {
+    if (!nextLink) return;
+
+    nextLink.style.pointerEvents = isEnabled ? "auto" : "none";
+    nextLink.style.opacity = isEnabled ? "1" : "0.6";
+  }
+
+function isHintClosed(hintName) {
+  return closedHints.has(hintName);
+}
+
+function hasHintBeenShown(hintName) {
+  return shownHints.has(hintName);
+}
+
+function isMobileHintsMode() {
+  return mobileHintsMedia.matches;
+}
+
+function setHintBackdropVisible(isVisible) {
+  if (!hintBackdrop) return;
+
+  hintBackdrop.classList.toggle("is-visible", isVisible);
+  hintBackdrop.setAttribute("aria-hidden", String(!isVisible));
+  document.body.classList.toggle("editor-hints-mobile-open", isVisible);
+}
+
+function closeAllHints() {
+  document.querySelectorAll(".editor-hint.is-visible").forEach((hint) => {
+    hint.classList.remove("is-visible");
+    hint.setAttribute("aria-hidden", "true");
+  });
+}
+
+function getVisibleHintName() {
+  const visibleHint = document.querySelector(".editor-hint.is-visible");
+  return visibleHint ? visibleHint.getAttribute("data-hint") : "";
+}
+
+function openHint(hintName, options = {}) {
+  const { force = false } = options;
+
+  if (!hintName) return;
+  if (!force && (isHintClosed(hintName) || hasHintBeenShown(hintName))) return;
+
+  const hint = document.querySelector(`[data-hint="${hintName}"]`);
+  if (!hint) return;
+
+  if (isMobileHintsMode()) {
+    closeAllHints();
+  } else if (hint.classList.contains("is-visible")) {
+    return;
+  }
+
+  hint.classList.add("is-visible");
+  hint.setAttribute("aria-hidden", "false");
+  shownHints.add(hintName);
+
+  if (isMobileHintsMode()) {
+    setHintBackdropVisible(true);
+  }
+}
+
+function closeHint(hintName, options = {}) {
+  const { keepQueue = true } = options;
+  const hint = document.querySelector(`[data-hint="${hintName}"]`);
+
+  if (hint) {
+    hint.classList.remove("is-visible");
+    hint.setAttribute("aria-hidden", "true");
+  }
+
+  if (hintName) {
+    closedHints.add(hintName);
+  }
+
+  if (!isMobileHintsMode()) return;
+
+  if (
+    keepQueue &&
+    hintName === "orientation" &&
+    !isHintClosed("replace") &&
+    !hasHintBeenShown("replace")
+  ) {
+    openHint("replace", { force: true });
+    return;
+  }
+
+  setHintBackdropVisible(Boolean(getVisibleHintName()));
+}
+
+function bindHints() {
+  hintTriggers.forEach((trigger) => {
+    const hintName = trigger.getAttribute("data-hint-trigger");
+
+    if (!hintName) return;
+
+    trigger.addEventListener("mouseenter", () => {
+      if (!isMobileHintsMode()) {
+        openHint(hintName);
+      }
+    });
+
+    trigger.addEventListener("focusin", () => {
+      if (!isMobileHintsMode()) {
+        openHint(hintName);
+      }
+    });
+
+    trigger.addEventListener("click", (event) => {
+      if (!isMobileHintsMode()) return;
+
+      if (!hasHintBeenShown(hintName) && !isHintClosed(hintName)) {
+        event.preventDefault();
+        event.stopPropagation();
+        openHint(hintName, { force: true });
+      }
+    });
+  });
+
+  hintCloseButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      closeHint(button.getAttribute("data-hint-close"));
+    });
+  });
+
+  if (hintBackdrop) {
+    hintBackdrop.addEventListener("click", () => {
+      const visibleHintName = getVisibleHintName();
+
+      if (visibleHintName) {
+        closeHint(visibleHintName, { keepQueue: false });
+      } else {
+        setHintBackdropVisible(false);
+      }
+    });
+  }
+}
+
+  function parseFormat(format) {
+    const [rowsRaw, colsRaw] = (format || "2x3").toLowerCase().split("x");
+    const rows = Number(rowsRaw) || 2;
+    const cols = Number(colsRaw) || 3;
+    return { rows, cols };
+  }
+
+  function isSquareCanvasFormat() {
+    const { rows, cols } = parseFormat(currentFormat);
+    return rows === cols;
+  }
+
+  function getRenderDimensions() {
+    const { rows, cols } = parseFormat(currentFormat);
+    return {
+      renderRows: currentOrientation === "portrait" ? cols : rows,
+      renderCols: currentOrientation === "portrait" ? rows : cols
+    };
+  }
+
+  function updateStageRatio() {
+    const { rows, cols } = parseFormat(currentFormat);
+    const { renderRows, renderCols } = getRenderDimensions();
+    const isPortrait = currentOrientation === "portrait";
+    const longerSide = Math.max(rows, cols) || 1;
+    const shorterSide = Math.min(rows, cols) || 1;
+    const baseLandscapeRatio = longerSide / shorterSide;
+
+    if (editorStage) {
+      const stageStyles = window.getComputedStyle(editorStage);
+      const paddingLeft = parseFloat(stageStyles.paddingLeft) || 0;
+      const paddingRight = parseFloat(stageStyles.paddingRight) || 0;
+      const paddingTop = parseFloat(stageStyles.paddingTop) || 0;
+      const paddingBottom = parseFloat(stageStyles.paddingBottom) || 0;
+
+      const stageParentWidth = editorStage.parentElement
+        ? editorStage.parentElement.clientWidth
+        : editorStage.clientWidth;
+
+      const availableWidth = Math.max(1, stageParentWidth || editorStage.clientWidth || 0);
+      const maxStageWidth = window.innerWidth <= 1000
+        ? availableWidth
+        : Math.min(availableWidth, 550);
+      const baseLandscapeViewportWidth = Math.max(
+        1,
+        Math.round(maxStageWidth - paddingLeft - paddingRight)
+      );
+      const baseLandscapeViewportHeight = Math.max(
+        1,
+        Math.round(baseLandscapeViewportWidth / baseLandscapeRatio)
+      );
+      const viewportWidth = isPortrait
+        ? baseLandscapeViewportHeight
+        : baseLandscapeViewportWidth;
+      const viewportHeight = isPortrait
+        ? baseLandscapeViewportWidth
+        : baseLandscapeViewportHeight;
+      const stageWidth = Math.round(viewportWidth + paddingLeft + paddingRight);
+      const stageHeight = Math.round(viewportHeight + paddingTop + paddingBottom);
+
+      editorStage.style.width = `${stageWidth}px`;
+      editorStage.style.height = `${stageHeight}px`;
+      editorStage.style.aspectRatio = "auto";
+      editorViewport.style.width = `${viewportWidth}px`;
+      editorViewport.style.height = `${viewportHeight}px`;
+    }
+
+    editorViewport.style.aspectRatio = `${renderCols} / ${renderRows}`;
+  }
+
+  function renderGrid() {
+    const { renderRows, renderCols } = getRenderDimensions();
+    const gridLineThicknessPx = 2;
+    const gridLineThickness = `${gridLineThicknessPx}px`;
+
+    editorGrid.innerHTML = "";
+
+    for (let row = 0; row <= renderRows; row++) {
+      const line = document.createElement("span");
+      line.className = "editor-stage__line editor-stage__line--horizontal";
+      if (row === 0) {
+        line.style.top = "0";
+      } else if (row === renderRows) {
+        line.style.top = `calc(100% - ${gridLineThickness})`;
+      } else {
+        line.style.top = `calc(${(row / renderRows) * 100}% - ${gridLineThicknessPx / 2}px)`;
+      }
+      editorGrid.appendChild(line);
+    }
+
+    for (let col = 0; col <= renderCols; col++) {
+      const line = document.createElement("span");
+      line.className = "editor-stage__line editor-stage__line--vertical";
+      if (col === 0) {
+        line.style.left = "0";
+      } else if (col === renderCols) {
+        line.style.left = `calc(100% - ${gridLineThickness})`;
+      } else {
+        line.style.left = `calc(${(col / renderCols) * 100}% - ${gridLineThicknessPx / 2}px)`;
+      }
+      editorGrid.appendChild(line);
+    }
+
+    formatValue.textContent = `${renderRows}x${renderCols}`;
+    orientationValue.textContent = currentOrientation === "portrait" ? "Книжная" : "Альбомная";
+  }
+
+  function getPanBounds() {
+    const viewportWidth = editorViewport.clientWidth || 0;
+    const viewportHeight = editorViewport.clientHeight || 0;
+    const imageWidth = editorImage.naturalWidth || 0;
+    const imageHeight = editorImage.naturalHeight || 0;
+
+    if (!viewportWidth || !viewportHeight || !imageWidth || !imageHeight) {
+      return { maxPanX: 0, maxPanY: 0 };
+    }
+
+    const zoom = Number(zoomRange.value) / 100;
+    const baseScale = Math.max(viewportWidth / imageWidth, viewportHeight / imageHeight);
+    const drawWidth = imageWidth * baseScale * zoom;
+    const drawHeight = imageHeight * baseScale * zoom;
+
+    return {
+      maxPanX: Math.max(0, (drawWidth - viewportWidth) / 2),
+      maxPanY: Math.max(0, (drawHeight - viewportHeight) / 2)
+    };
+  }
+
+  function updateImageBaseSize() {
+    const viewportWidth = editorViewport.clientWidth || 0;
+    const viewportHeight = editorViewport.clientHeight || 0;
+    const imageWidth = editorImage.naturalWidth || 0;
+    const imageHeight = editorImage.naturalHeight || 0;
+
+    if (!viewportWidth || !viewportHeight || !imageWidth || !imageHeight) {
+      editorImage.style.removeProperty("width");
+      editorImage.style.removeProperty("height");
+      return;
+    }
+
+    const baseScale = Math.max(viewportWidth / imageWidth, viewportHeight / imageHeight);
+    const drawWidth = imageWidth * baseScale;
+    const drawHeight = imageHeight * baseScale;
+
+    editorImage.style.width = `${drawWidth}px`;
+    editorImage.style.height = `${drawHeight}px`;
+  }
+
+  function clampPanOffsets() {
+    const { maxPanX, maxPanY } = getPanBounds();
+    panX = Math.min(maxPanX, Math.max(-maxPanX, panX));
+    panY = Math.min(maxPanY, Math.max(-maxPanY, panY));
+  }
+
+  function updateViewportDragState() {
+    const draggable = editorImage.classList.contains("is-visible") && Boolean(editorImage.src);
+    editorViewport.classList.toggle("is-draggable", draggable);
+    editorViewport.classList.toggle("is-dragging", draggable && isImageDragging);
+  }
+
+  function updateImageTransform() {
+    const zoom = Number(zoomRange.value) / 100;
+    let rotate = Number(rotateRange.value);
+
+    if (Math.abs(rotate) <= ROTATE_SNAP_DEGREES) {
+      rotate = 0;
+      if (Number(rotateRange.value) !== 0) {
+        rotateRange.value = "0";
+      }
+    }
+
+    updateImageBaseSize();
+    clampPanOffsets();
+    editorImage.style.transform = `translate(-50%, -50%) translate(${panX}px, ${panY}px) scale(${zoom}) rotate(${rotate}deg)`;
+    updateViewportDragState();
+
+    localStorage.setItem(STORAGE_KEYS.editorZoom, String(zoomRange.value));
+    localStorage.setItem(STORAGE_KEYS.editorRotate, String(rotate));
+
+    if (editorImage.src) {
+      scheduleEditedSnapshotSave();
+    }
+  }
+
+  function handleViewportWheelZoom(event) {
+    if (!editorImage.src || !editorImage.classList.contains("is-visible")) {
+      return;
+    }
+
+    if (window.innerWidth <= 1000) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const currentZoomValue = Number(zoomRange.value);
+    const minZoomValue = Number(zoomRange.min);
+    const maxZoomValue = Number(zoomRange.max);
+    const step = 4;
+    const direction = event.deltaY < 0 ? 1 : -1;
+    const nextZoomValue = Math.min(
+      maxZoomValue,
+      Math.max(minZoomValue, currentZoomValue + direction * step)
+    );
+
+    if (nextZoomValue === currentZoomValue) {
+      return;
+    }
+
+    zoomRange.value = String(nextZoomValue);
+    updateImageTransform();
+  }
+
+  function canDragImage() {
+    return editorImage.classList.contains("is-visible") && Boolean(editorImage.src);
+  }
+
+  function clampZoomValue(value) {
+    const minZoomValue = Number(zoomRange.min);
+    const maxZoomValue = Number(zoomRange.max);
+    return Math.min(maxZoomValue, Math.max(minZoomValue, value));
+  }
+
+  function getTouchDistance(firstPoint, secondPoint) {
+    const deltaX = secondPoint.x - firstPoint.x;
+    const deltaY = secondPoint.y - firstPoint.y;
+    return Math.hypot(deltaX, deltaY);
+  }
+
+  function resetTouchGestures() {
+    activeTouchPointers.clear();
+    isPinchZooming = false;
+    pinchStartDistance = 0;
+    pinchStartZoomValue = clampZoomValue(Number(zoomRange.value) || Number(zoomRange.min) || 100);
+  }
+
+  function startPinchZoomGesture() {
+    const touchPoints = Array.from(activeTouchPointers.values());
+    if (touchPoints.length < 2) {
+      return;
+    }
+
+    const distance = getTouchDistance(touchPoints[0], touchPoints[1]);
+    if (!distance) {
+      return;
+    }
+
+    finishImageDrag();
+    isPinchZooming = true;
+    pinchStartDistance = distance;
+    pinchStartZoomValue = clampZoomValue(Number(zoomRange.value) || Number(zoomRange.min) || 100);
+  }
+
+  function updatePinchZoomGesture() {
+    if (!isPinchZooming) {
+      return;
+    }
+
+    const touchPoints = Array.from(activeTouchPointers.values());
+    if (touchPoints.length < 2 || !pinchStartDistance) {
+      return;
+    }
+
+    const currentDistance = getTouchDistance(touchPoints[0], touchPoints[1]);
+    if (!currentDistance) {
+      return;
+    }
+
+    const ratio = currentDistance / pinchStartDistance;
+    const nextZoomValue = clampZoomValue(Math.round(pinchStartZoomValue * ratio));
+
+    if (nextZoomValue === Number(zoomRange.value)) {
+      return;
+    }
+
+    zoomRange.value = String(nextZoomValue);
+    updateImageTransform();
+  }
+
+  function finishImageDrag() {
+    if (!isImageDragging) {
+      return;
+    }
+
+    isImageDragging = false;
+    dragPointerId = null;
+    updateViewportDragState();
+  }
+
+  function handleImageDragStart(event) {
+    if (!canDragImage()) {
+      return;
+    }
+
+    if (event.pointerType === "touch") {
+      activeTouchPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+      if (activeTouchPointers.size >= 2) {
+        event.preventDefault();
+        startPinchZoomGesture();
+        return;
+      }
+    }
+
+    if (isPinchZooming) {
+      return;
+    }
+
+    if (isImageDragging) {
+      return;
+    }
+
+    if (event.pointerType === "touch" && !event.isPrimary) {
+      return;
+    }
+
+    if (event.pointerType === "mouse" && event.button !== 0) {
+      return;
+    }
+
+    event.preventDefault();
+    isImageDragging = true;
+    dragPointerId = event.pointerId;
+    dragStartX = event.clientX;
+    dragStartY = event.clientY;
+    dragStartPanX = panX;
+    dragStartPanY = panY;
+    updateViewportDragState();
+
+    if (typeof editorViewport.setPointerCapture === "function") {
+      editorViewport.setPointerCapture(event.pointerId);
+    }
+  }
+
+  function handleImageDragMove(event) {
+    if (event.pointerType === "touch" && activeTouchPointers.has(event.pointerId)) {
+      activeTouchPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+      if (activeTouchPointers.size >= 2 || isPinchZooming) {
+        event.preventDefault();
+
+        if (!isPinchZooming) {
+          startPinchZoomGesture();
+        }
+
+        updatePinchZoomGesture();
+        return;
+      }
+    }
+
+    if (!isImageDragging || event.pointerId !== dragPointerId) {
+      return;
+    }
+
+    if (event.pointerType === "touch") {
+      event.preventDefault();
+    }
+
+    const deltaX = event.clientX - dragStartX;
+    const deltaY = event.clientY - dragStartY;
+
+    panX = dragStartPanX + deltaX;
+    panY = dragStartPanY + deltaY;
+    updateImageTransform();
+  }
+
+  function handleImageDragEnd(event) {
+    if (event.pointerType === "touch") {
+      activeTouchPointers.delete(event.pointerId);
+
+      if (isPinchZooming) {
+        if (activeTouchPointers.size >= 2) {
+          const touchPoints = Array.from(activeTouchPointers.values());
+          const distance = getTouchDistance(touchPoints[0], touchPoints[1]);
+          pinchStartDistance = distance || pinchStartDistance;
+          pinchStartZoomValue = clampZoomValue(Number(zoomRange.value) || Number(zoomRange.min) || 100);
+        } else {
+          isPinchZooming = false;
+          pinchStartDistance = 0;
+          pinchStartZoomValue = clampZoomValue(Number(zoomRange.value) || Number(zoomRange.min) || 100);
+        }
+      }
+    }
+
+    if (dragPointerId !== null && event.pointerId !== dragPointerId) {
+      return;
+    }
+
+    if (dragPointerId !== null && typeof editorViewport.releasePointerCapture === "function") {
+      try {
+        editorViewport.releasePointerCapture(dragPointerId);
+      } catch (error) {
+        // ignore release errors
+      }
+    }
+
+    finishImageDrag();
+  }
+
+  function setImageSource(src, name = "") {
+    if (!src) {
+      panX = 0;
+      panY = 0;
+      resetTouchGestures();
+      finishImageDrag();
+      editorImage.removeAttribute("src");
+      editorImage.classList.remove("is-visible");
+      if (editorStageBg) {
+        editorStageBg.style.backgroundImage = "";
+        editorStageBg.classList.remove("is-visible");
+      }
+      editorEmpty.style.display = "flex";
+      imageStatus.textContent = "Загрузите фото со шага 4 или выберите новое";
+      setNextAvailability(false);
+      updateViewportDragState();
+      return;
+    }
+
+    panX = 0;
+    panY = 0;
+    resetTouchGestures();
+    finishImageDrag();
+    editorImage.src = src;
+    editorImage.classList.add("is-visible");
+    if (editorStageBg) {
+      editorStageBg.style.backgroundImage = `url("${src}")`;
+      editorStageBg.classList.add("is-visible");
+    }
+    editorEmpty.style.display = "none";
+    imageStatus.textContent = name
+      ? `Текущее изображение: ${name}`
+      : "Используется фото, загруженное на шаге 4";
+    setNextAvailability(true);
+
+    waitForImageReady(editorImage).then(() => {
+      updateImageTransform();
+      scheduleEditedSnapshotSave();
+    });
+  }
+
+  async function applyStoredImage() {
+    const storedRecord = await getStoredImage(IMAGE_DB_CONFIG.originalImageKey);
+
+    if (storedRecord && storedRecord.blob) {
+      if (currentObjectUrl) {
+        URL.revokeObjectURL(currentObjectUrl);
+      }
+
+      currentObjectUrl = URL.createObjectURL(storedRecord.blob);
+      setImageSource(currentObjectUrl, storedRecord.name || localStorage.getItem(STORAGE_KEYS.uploadedImageName) || "");
+      return;
+    }
+
+    const fallbackData = localStorage.getItem(STORAGE_KEYS.uploadedImageFallback);
+
+    if (fallbackData) {
+      setImageSource(fallbackData, localStorage.getItem(STORAGE_KEYS.uploadedImageName) || "");
+      return;
+    }
+
+    setImageSource("");
+  }
+
+  async function handleNewUpload(file) {
+    if (!file) return;
+
+    const maxSize = 15 * 1024 * 1024;
+
+    if (file.size > maxSize) {
+      imageStatus.textContent = "Файл больше 15 Мб";
+      return;
+    }
+
+    imageStatus.textContent = "Сохраняем файл...";
+
+    try {
+      await saveImageToStorage(file, IMAGE_DB_CONFIG.originalImageKey, {
+        name: file.name,
+        type: file.type
+      });
+      localStorage.removeItem(STORAGE_KEYS.uploadedImageFallback);
+    } catch (error) {
+      try {
+        await saveImageFallback(file);
+      } catch (fallbackError) {
+        imageStatus.textContent = "Не удалось сохранить файл";
+        return;
+      }
+    }
+
+    localStorage.setItem(STORAGE_KEYS.uploadedImageName, file.name);
+    localStorage.removeItem(STORAGE_KEYS.editedImageFallback);
+    await applyStoredImage();
+  }
+
+  function applyOrientationState() {
+    const squareFormat = isSquareCanvasFormat();
+
+    orientationToggle.disabled = squareFormat;
+    orientationToggle.classList.toggle("is-disabled", squareFormat);
+    orientationToggle.classList.toggle("is-active", !squareFormat && currentOrientation === "portrait");
+    updateStageRatio();
+    renderGrid();
+    updateImageTransform();
+  }
+
+  orientationToggle.addEventListener("click", () => {
+    if (isSquareCanvasFormat()) {
+      return;
+    }
+
+    currentOrientation = currentOrientation === "portrait" ? "landscape" : "portrait";
+    localStorage.setItem(STORAGE_KEYS.editorOrientation, currentOrientation);
+    applyOrientationState();
+  });
+
+  if (uploadInput) {
+    uploadInput.addEventListener("change", async () => {
+      const file = uploadInput.files && uploadInput.files[0];
+      await handleNewUpload(file);
+    });
+  }
+
+  if (nextLink) {
+    nextLink.addEventListener("click", async (event) => {
+      const targetHref = nextLink.getAttribute("href") || "#";
+
+      if (targetHref === "#") {
+        event.preventDefault();
+        return;
+      }
+
+      event.preventDefault();
+      await persistEditedSnapshotNow();
+      window.location.href = targetHref;
+    });
+  }
+
+  window.addEventListener("DOMContentLoaded", async () => {
+    localStorage.removeItem("mozle_editor_hint_orientation_closed");
+    localStorage.removeItem("mozle_editor_hint_replace_closed");
+
+    const savedZoom = localStorage.getItem(STORAGE_KEYS.editorZoom);
+    const savedRotate = localStorage.getItem(STORAGE_KEYS.editorRotate);
+
+    if (savedZoom) {
+      zoomRange.value = savedZoom;
+    }
+
+    if (savedRotate) {
+      const rotateMin = Number(rotateRange.min);
+      const rotateMax = Number(rotateRange.max);
+      const rotateValue = Number(savedRotate);
+
+      if (!Number.isNaN(rotateValue)) {
+        rotateRange.value = String(Math.min(rotateMax, Math.max(rotateMin, rotateValue)));
+      }
+    }
+
+    updateImageTransform();
+    applyOrientationState();
+    bindHints();
+    await applyStoredImage();
+
+    if (isMobileHintsMode()) {
+      openHint("orientation", { force: true });
+    }
+  });
+
+  zoomRange.addEventListener("input", updateImageTransform);
+  rotateRange.addEventListener("input", updateImageTransform);
+  editorViewport.addEventListener("wheel", handleViewportWheelZoom, { passive: false });
+  editorViewport.addEventListener("pointerdown", handleImageDragStart);
+  editorViewport.addEventListener("pointermove", handleImageDragMove);
+  editorViewport.addEventListener("pointerup", handleImageDragEnd);
+  editorViewport.addEventListener("pointercancel", handleImageDragEnd);
+  editorViewport.addEventListener("lostpointercapture", finishImageDrag);
+  editorViewport.addEventListener("dragstart", (event) => event.preventDefault());
+  window.addEventListener("pointerup", handleImageDragEnd);
+  window.addEventListener("pointercancel", handleImageDragEnd);
+  window.addEventListener("resize", () => {
+    resetTouchGestures();
+    finishImageDrag();
+    updateStageRatio();
+    updateImageTransform();
+  });
+
+  mobileHintsMedia.addEventListener("change", (event) => {
+    closeAllHints();
+    setHintBackdropVisible(false);
+
+    if (event.matches && !hasHintBeenShown("orientation") && !isHintClosed("orientation")) {
+      openHint("orientation", { force: true });
+    }
+  });
+
+  window.addEventListener("beforeunload", () => {
+    resetTouchGestures();
+    finishImageDrag();
+
+    if (editedSnapshotTimer) {
+      window.clearTimeout(editedSnapshotTimer);
+    }
+
+    if (currentObjectUrl) {
+      URL.revokeObjectURL(currentObjectUrl);
+    }
+  });
+</script>
+</body>
+</html>
